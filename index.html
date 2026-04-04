@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Deven Shah — Product Manager</title>
+<title>Deven Shah, Product Manager</title>
 <meta name="description" content="Senior Product Manager with 9 years in AdTech, AI, and SaaS. Head of Product at Voiro. I build platforms that teams depend on every day." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%233D52A0'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='white' font-weight='500'>D</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,6 +57,9 @@
     text-decoration: none;
     letter-spacing: 0.01em;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
   .nav-links a {
@@ -72,8 +75,8 @@
   .nav-cv {
     background: var(--accent);
     color: var(--white) !important;
-    padding: 0.35rem 0.9rem;
-    border-radius: 3px;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
     font-weight: 500 !important;
     transition: background 0.2s !important;
   }
@@ -183,7 +186,7 @@
     font-family: var(--sans);
     font-size: 0.85rem;
     font-weight: 500;
-    border-radius: 4px;
+    border-radius: 24px;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.2s;
@@ -403,14 +406,14 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Deven Shah</a>
+  <a href="#hero" class="nav-logo"><span class="nav-logo-wave">👋</span><span class="nav-logo-name">Deven Shah</span></a>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#builder">Builder</a></li>
     <li><a href="#experience">Journey</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="Deven_Shah_CV.docx" download class="nav-cv">Download CV</a></li>
+    <li><a href="Deven_Shah_CV.pdf" download class="nav-cv">Download CV</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -422,7 +425,7 @@
   <a href="#experience" onclick="closeMobileMenu()">Journey</a>
   <a href="#projects" onclick="closeMobileMenu()">Projects</a>
   <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <a href="Deven_Shah_CV.docx" download style="color:var(--accent);font-weight:500;">Download CV</a>
+  <a href="Deven_Shah_CV.pdf" download style="color:var(--accent);font-weight:500;">Download CV</a>
 </div>
 
 <!-- HERO -->
@@ -432,9 +435,9 @@
       <span class="hero-tag">Senior Product Manager · Head of Product</span>
       <h1 class="hero-name">I build platforms,<br/>not features.</h1>
       <p class="hero-tagline">
-        9 years building AdTech, AI, and SaaS products. Currently heading Product at <em>Voiro</em> — a publisher monetisation platform used across India, MENA, and the US.
+        9 years building AdTech, AI, and SaaS products. Currently heading Product at <em>Voiro</em>, a publisher monetisation platform used across India, MENA, and the US.
         <br/><br/>
-        I don't build features in isolation. I build the platforms that teams depend on every day — where <em>money moves, operations scale, and decisions get made.</em>
+        I don't build features in isolation. I build the platforms that teams depend on every day, where <em>money moves, operations scale, and decisions get made.</em>
       </p>
       <div class="hero-meta">
         <div class="hero-meta-item">📍 <span>Bangalore / Mumbai</span></div>
@@ -443,12 +446,12 @@
       </div>
       <div class="hero-actions">
         <a href="mailto:devenshah4172@gmail.com" class="btn btn-primary">Let's talk →</a>
-        <a href="Deven_Shah_CV.docx" download class="btn btn-ghost">Download CV</a>
+        <a href="Deven_Shah_CV.pdf" download class="btn btn-ghost">Download CV</a>
         <a href="https://linkedin.com/in/deven-shah-635210145/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
       </div>
     </div>
     <div class="hero-photo-col">
-      <div class="hero-photo-placeholder">DS</div>
+      <img src="photo.png" alt="Deven Shah" class="hero-photo" />
       <p class="hero-company-note">
         <strong>Head of Product</strong><br/>
         Voiro Technology<br/>
@@ -461,7 +464,7 @@
 <!-- PHILOSOPHY STRIP -->
 <div id="philosophy">
   <div class="philosophy-inner">
-    <p class="philosophy-quote">"The best PMs close the gap between what we want and what we can ship. I try to be that bridge — not just by writing specs, but by prototyping, validating, and building where it matters."</p>
+    <p class="philosophy-quote">"The best PMs close the gap between what we want and what we can ship. I try to be that bridge, not just by writing specs but by prototyping, validating, and building where it matters."</p>
     <p class="philosophy-attribution">— Deven Shah</p>
   </div>
 </div>
@@ -480,7 +483,7 @@
         <div class="cs-title-block">
           <span class="cs-tag">Revenue Platform · Voiro</span>
           <h3 class="cs-title">Scaling a Revenue Platform When Everything Was on Fire</h3>
-          <p class="cs-subtitle">A major enterprise client was onboarding fast. The platform wasn't ready — workflows had gaps, numbers didn't reconcile, and the architecture couldn't handle the scale. I had to fix it while the train was moving.</p>
+          <p class="cs-subtitle">A major enterprise client was onboarding fast. The platform wasn't ready, workflows had gaps, numbers didn't reconcile, and the architecture couldn't handle the scale. I had to fix it while the train was moving.</p>
         </div>
         <div class="cs-toggle">+</div>
       </div>
@@ -489,7 +492,7 @@
           <div>
             <p class="cs-block-title">The reality</p>
             <ul class="cs-list">
-              <li data-icon="●">Three markets live at once — India, MENA, US — each with different rules</li>
+              <li data-icon="●">Three markets live at once, India, MENA, US, each with different rules</li>
               <li data-icon="●">Multiple pricing models running in parallel</li>
               <li data-icon="●">Integrations breaking under load</li>
               <li data-icon="●">Sales teams moving fast, governance trying to keep up</li>
@@ -524,7 +527,7 @@
         <div class="cs-title-block">
           <span class="cs-tag">AI Product · Voiro Genie</span>
           <h3 class="cs-title">Turning Raw Revenue Data Into Conversations</h3>
-          <p class="cs-subtitle">Sales managers were spending hours pulling reports. The data existed — but the access didn't. I led the product to bring AI-powered querying to non-technical users.</p>
+          <p class="cs-subtitle">Sales managers were spending hours pulling reports. The data existed, but the access didn't. I led the product to bring AI-powered querying to non-technical users.</p>
         </div>
         <div class="cs-toggle">+</div>
       </div>
@@ -567,7 +570,7 @@
         <div class="cs-title-block">
           <span class="cs-tag">0 to 1 · Brand Center</span>
           <h3 class="cs-title">Building a Self-Serve Media Buying Platform From Zero</h3>
-          <p class="cs-subtitle">Publishers needed a unified way to manage direct digital media buying — without stitching together spreadsheets, emails, and ad server exports. I led Brand Center from concept to closed beta.</p>
+          <p class="cs-subtitle">Publishers needed a unified way to manage direct digital media buying, without stitching together spreadsheets, emails, and ad server exports. I led Brand Center from concept to closed beta.</p>
         </div>
         <div class="cs-toggle">+</div>
       </div>
@@ -610,7 +613,7 @@
 <section id="builder" style="background:var(--cream-dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">I don't just write specs — I build</h2>
+      <h2 class="section-title">I don't just write specs, I build</h2>
       <div class="section-line"></div>
     </div>
 
@@ -635,7 +638,7 @@
       <div class="builder-card">
         <div class="builder-card-label">Ship track</div>
         <div class="builder-card-title">Build and deploy internal tools directly</div>
-        <p>For internal or non-core tooling: scope the problem, build with AI-assisted coding tools, deploy on Vercel. The Release Notes tool went from idea to live in days — not sprints.</p>
+        <p>For internal or non-core tooling: scope the problem, build with AI-assisted coding tools, deploy on Vercel. The Release Notes tool went from idea to live in days. Not sprints..</p>
         <div class="tools-row">
           <span class="tool-pill">AI coding tools</span>
           <span class="tool-pill">Vercel</span>
@@ -657,7 +660,7 @@
       </div>
       <div class="belief-item">
         <span class="belief-num">02</span>
-        <p class="belief-text">Architecture decisions compound. Get them right early — or spend three quarters untangling them.</p>
+        <p class="belief-text">Architecture decisions compound. Get them right early, or spend three quarters untangling them.</p>
       </div>
       <div class="belief-item">
         <span class="belief-num">03</span>
@@ -696,17 +699,17 @@
     <div class="timeline">
       <div class="tl-item fade-up">
         <div class="tl-dot"></div>
-        <div class="tl-date">Sep 2024 — Present</div>
+        <div class="tl-date">Sep 2024 to Present</div>
         <div class="tl-role">Senior Product Manager · Head of Product</div>
         <div class="tl-company">Voiro Technology</div>
-        <div class="tl-desc">Leading the full product function — strategy, roadmap, team, and delivery — for a B2B AdTech SaaS platform across India, MENA, and the US. Shipping AI-powered monetisation tools, enterprise integrations, and revenue systems used daily by publishers like Myntra, Flipkart, Zee5, and Paytm.</div>
+        <div class="tl-desc">Leading the full product function, strategy, roadmap, team, and delivery for a B2B AdTech SaaS platform across India, MENA, and the US. Shipping AI-powered monetisation tools, enterprise integrations, and revenue systems used daily by publishers like Myntra, Flipkart, Zee5, and Paytm.</div>
         <div class="tl-tags">
           <span class="tl-tag">Head of Product</span><span class="tl-tag">AI Products</span><span class="tl-tag">AdTech</span><span class="tl-tag">Revenue Systems</span><span class="tl-tag">Team Leadership</span>
         </div>
       </div>
       <div class="tl-item fade-up">
         <div class="tl-dot"></div>
-        <div class="tl-date">Apr 2021 — Aug 2024</div>
+        <div class="tl-date">Apr 2021 to Aug 2024</div>
         <div class="tl-role">Product Manager</div>
         <div class="tl-company">Voiro Technology</div>
         <div class="tl-desc">Owned roadmap and delivery of 25+ features with greater than 90% achieving 95%+ adoption. Led Brand Center from 0 to closed beta. Drove Mixpanel instrumentation strategy across 5 enterprise clients. Improved platform performance by 28%.</div>
@@ -716,7 +719,7 @@
       </div>
       <div class="tl-item fade-up">
         <div class="tl-dot"></div>
-        <div class="tl-date">May 2019 — Mar 2021</div>
+        <div class="tl-date">May 2019 to Mar 2021</div>
         <div class="tl-role">Senior Executive, Ad Revenue</div>
         <div class="tl-company">Disney+ Hotstar</div>
         <div class="tl-desc">Owned ad revenue reporting and campaign performance products during IPL 2020 and Cricket World Cup. Reduced reporting turnaround by 70%. Built Power BI and Google Data Studio dashboards for leadership. Improved campaign performance by 11% through A/B testing.</div>
@@ -726,7 +729,7 @@
       </div>
       <div class="tl-item fade-up">
         <div class="tl-dot"></div>
-        <div class="tl-date">Jul 2017 — Apr 2019</div>
+        <div class="tl-date">Jul 2017 to Apr 2019</div>
         <div class="tl-role">Product Operations Analyst</div>
         <div class="tl-company">Media.net</div>
         <div class="tl-desc">Supported product and business decisions with SQL and Hive data analysis. Contributed to Singapore market launch. Primary contact for ad-serving implementation and publisher onboarding.</div>
@@ -825,7 +828,7 @@
       <a href="https://deven-shah.lovable.app" target="_blank" rel="noopener noreferrer" class="project-card fade-up">
         <span class="project-status">● Live</span>
         <div class="project-title">This Portfolio</div>
-        <p class="project-desc">Designed and prototyped in Lovable, then refined and deployed. A working example of the prototype-first workflow — from idea to live site without involving an engineering team.</p>
+        <p class="project-desc">Designed and prototyped in Lovable, then refined and deployed. A working example of the prototype-first workflow, from idea to live site without involving an engineering team.</p>
         <span class="project-link">deven-shah.lovable.app →</span>
       </a>
     </div>
@@ -847,8 +850,8 @@
 <section id="contact">
   <div class="contact-inner">
     <div>
-      <h2 class="contact-heading">If you need someone who can own the problem end to end, let's talk.</h2>
-      <p class="contact-sub">Open to product leadership roles, senior IC PM positions, and product consulting engagements — anywhere I can build from scratch, fix what's broken, or bring AI into the mix. Based in Bangalore and Mumbai. Open to remote or hybrid.</p>
+      <h2 class="contact-heading">If you need someone who can own the problem end to end — let's talk.</h2>
+      <p class="contact-sub">Open to product leadership roles, senior IC PM positions, and product consulting engagements, anywhere I can build from scratch, fix what's broken, or bring AI into the mix. Based in Bangalore and Mumbai. Open to remote or hybrid.</p>
       <div class="contact-links" style="margin-bottom:1.5rem;">
         <a href="mailto:devenshah4172@gmail.com" class="contact-link">
           <div class="contact-link-icon">✉</div>
@@ -863,7 +866,7 @@
           +91 7208420746
         </a>
       </div>
-      <a href="Deven_Shah_CV.docx" download class="btn btn-primary" style="display:inline-flex;">Download CV →</a>
+      <a href="Deven_Shah_CV.pdf" download class="btn btn-primary" style="display:inline-flex;">Download CV →</a>
     </div>
     <div>
       <div class="open-to">
@@ -871,7 +874,7 @@
         <ul class="open-to-list">
           <li>Head of Product / Director of Product roles</li>
           <li>Senior PM at high-growth startups (Series B/C/D)</li>
-          <li>IC PM at big tech — AdTech or monetisation teams</li>
+          <li>IC PM at big tech, AdTech or monetisation teams</li>
           <li>AI-first product companies building real systems</li>
           <li>Product consulting engagements</li>
           <li>0 to 1 product builds with a strong engineering team</li>
@@ -909,7 +912,7 @@
     }
   }
 
-  // Scroll animations — fixed stagger counter
+  // Scroll animations, fixed stagger counter
   let fadeCounter = 0;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
