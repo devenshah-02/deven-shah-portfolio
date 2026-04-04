@@ -3,604 +3,420 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Deven Shah, Product Manager</title>
-<meta name="description" content="Senior Product Manager with 9 years in AdTech, AI, and SaaS. Head of Product at Voiro. I build platforms that teams depend on every day." />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%233D52A0'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='white' font-weight='500'>D</text></svg>" />
+<title>Deven Shah — Product Manager</title>
+<meta name="description" content="Senior Product Manager with 9 years in AdTech, AI, and SaaS. Head of Product at Voiro." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233D52A0'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='white' font-weight='500'>D</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --cream: #FAF8F5;
-    --cream-dark: #F0EDE8;
-    --ink: #1C1C1E;
-    --ink-light: #4A4A52;
-    --ink-muted: #8A8A96;
-    --accent: #3D52A0;
-    --accent-light: #EEF1FB;
-    --accent-mid: #7091E6;
-    --border: #E4E0DA;
-    --white: #FFFFFF;
-    --green: #2a8a5e;
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-  }
+:root {
+  --cream: #FAF8F5;
+  --cream-dark: #F0EDE8;
+  --ink: #1C1C1E;
+  --ink-light: #4A4A52;
+  --ink-muted: #8A8A96;
+  --accent: #3D52A0;
+  --accent-light: #EEF1FB;
+  --border: #E4E0DA;
+  --white: #FFFFFF;
+  --green: #2a8a5e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
 
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
-  body {
-    background: var(--cream);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,248,245,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  height: 56px; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.5rem;
+  text-decoration: none; color: var(--ink);
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 500;
+}
+.nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.82rem; color: var(--ink-light); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: var(--white) !important;
+  padding: 0.38rem 1rem; border-radius: 100px; font-weight: 500 !important;
+}
+.nav-cta:hover { background: #2d3f80 !important; }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250, 248, 245, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    height: 60px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
-  .nav-links a {
-    font-size: 0.83rem;
-    font-weight: 400;
-    color: var(--ink-light);
-    text-decoration: none;
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-    white-space: nowrap;
-  }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-cv {
-    background: var(--accent);
-    color: var(--white) !important;
-    padding: 0.35rem 1rem;
-    border-radius: 100px;
-    font-weight: 500 !important;
-    transition: background 0.2s !important;
-  }
-  .nav-cv:hover { background: #2d3f80 !important; color: var(--white) !important; }
+/* hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 20px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+.mobile-nav { display: none; position: fixed; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; flex-direction: column; gap: 0; z-index: 99; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 0.9rem; color: var(--ink-light); text-decoration: none; padding: 0.65rem 0; border-bottom: 1px solid var(--border); }
+.mobile-nav a:last-child { border-bottom: none; color: var(--accent); font-weight: 500; }
 
-  /* Mobile nav */
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
-  }
-  .nav-hamburger span {
-    display: block; width: 22px; height: 1.5px;
-    background: var(--ink); border-radius: 2px;
-    transition: all 0.3s;
-  }
-  .mobile-menu {
-    display: none;
-    position: fixed; top: 60px; left: 0; right: 0;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem;
-    flex-direction: column;
-    gap: 0.75rem;
-    z-index: 99;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    font-size: 0.9rem; color: var(--ink-light);
-    text-decoration: none; padding: 0.4rem 0;
-    border-bottom: 1px solid var(--border);
-  }
+/* HERO */
+#hero { padding-top: 100px; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+.hero-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+.hero-greeting { font-size: 0.85rem; color: var(--ink-muted); letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+.hero-name { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; color: var(--ink); line-height: 1.1; margin-bottom: 0.5rem; }
+.hero-title { font-size: 1rem; color: var(--accent); font-weight: 500; margin-bottom: 1.25rem; }
+.hero-bio { font-size: 0.92rem; color: var(--ink-light); line-height: 1.8; max-width: 480px; margin-bottom: 1.75rem; }
+.hero-bio strong { color: var(--ink); font-weight: 500; }
+.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
-  /* SECTIONS */
-  section { padding: 6rem 0; }
-  .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.4rem; font-family: var(--sans); font-size: 0.83rem; font-weight: 500; border-radius: 100px; text-decoration: none; cursor: pointer; transition: all 0.2s; }
+.btn-primary { background: var(--accent); color: var(--white); border: 2px solid var(--accent); }
+.btn-primary:hover { background: #2d3f80; border-color: #2d3f80; }
+.btn-outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.btn-outline:hover { background: var(--accent-light); }
+.btn-ghost { background: var(--cream-dark); color: var(--ink-light); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* HERO */
-  #hero {
-    padding-top: 120px;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-inner {
-    max-width: 900px; margin: 0 auto; padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 190px;
-    gap: 4rem;
-    align-items: start;
-  }
-  .hero-tag {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.85rem;
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-  }
-  .hero-name {
-    font-family: var(--serif);
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    font-weight: 500;
-    line-height: 1.15;
-    color: var(--ink);
-    margin-bottom: 1.25rem;
-    letter-spacing: -0.01em;
-  }
-  .hero-tagline {
-    font-size: 1rem;
-    color: var(--ink-light);
-    line-height: 1.8;
-    max-width: 560px;
-    margin-bottom: 2rem;
-  }
-  .hero-tagline em {
-    font-style: normal;
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .hero-meta {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 2.5rem;
-  }
-  .hero-meta-item {
-    font-size: 0.82rem;
-    color: var(--ink-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .hero-meta-item span { color: var(--ink-light); }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-photo-wrap { flex-shrink: 0; }
+.hero-photo { width: 130px; height: 130px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border); display: block; }
+.hero-photo-placeholder { width: 130px; height: 130px; border-radius: 8px; background: var(--accent-light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 2.5rem; color: var(--accent); }
 
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.65rem 1.4rem;
-    font-family: var(--sans);
-    font-size: 0.85rem;
-    font-weight: 500;
-    border-radius: 24px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-primary { background: var(--accent); color: var(--white); border: 2px solid var(--accent); }
-  .btn-primary:hover { background: #2d3f80; border-color: #2d3f80; }
-  .btn-outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
-  .btn-outline:hover { background: var(--accent-light); }
-  .btn-ghost { background: var(--cream-dark); color: var(--ink-light); border: 1px solid var(--border); }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+/* QUICK STATS */
+.stats-bar { background: var(--white); border-bottom: 1px solid var(--border); }
+.stats-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; display: flex; }
+.stat { flex: 1; padding: 1.25rem 0; border-right: 1px solid var(--border); text-align: center; }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: var(--ink); display: block; }
+.stat-label { font-size: 0.75rem; color: var(--ink-muted); letter-spacing: 0.04em; }
 
-  .hero-photo-col { padding-top: 0.5rem; }
-  .hero-photo {
-    width: 170px; height: 170px;
-    border-radius: 4px;
-    object-fit: cover;
-    border: 1px solid var(--border);
-    display: block;
-  }
-  .hero-photo-placeholder {
-    width: 170px; height: 170px;
-    border-radius: 4px;
-    background: var(--accent-light);
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 3rem;
-    color: var(--accent); font-weight: 400;
-  }
-  .hero-company-note {
-    margin-top: 0.85rem;
-    font-size: 0.78rem;
-    color: var(--ink-muted);
-    line-height: 1.6;
-  }
-  .hero-company-note strong { color: var(--ink-light); font-weight: 500; }
+/* SECTION */
+.section { padding: 4rem 0; }
+.container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+.section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; display: block; }
+.section-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: var(--ink); margin-bottom: 2rem; }
 
-  /* PHILOSOPHY STRIP */
-  #philosophy {
-    background: var(--ink);
-    padding: 5rem 0;
-  }
-  .philosophy-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-  .philosophy-quote {
-    font-family: var(--serif);
-    font-size: clamp(1.2rem, 2.5vw, 1.65rem);
-    color: var(--white);
-    font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    max-width: 680px;
-  }
-  .philosophy-attribution { font-size: 0.82rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+/* CASE STUDIES */
+.cs { background: var(--white); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
+.cs-header { padding: 1.5rem 1.75rem; cursor: pointer; display: flex; align-items: flex-start; gap: 1.25rem; transition: background 0.15s; user-select: none; }
+.cs-header:hover { background: var(--cream); }
+.cs-num { font-family: var(--serif); font-size: 1.6rem; color: #D5D0E8; font-weight: 400; line-height: 1; flex-shrink: 0; padding-top: 0.15rem; }
+.cs-meta { flex: 1; }
+.cs-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; display: block; }
+.cs-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 0.35rem; }
+.cs-sub { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.6; }
+.cs-arrow { font-size: 1rem; color: var(--ink-muted); transition: transform 0.25s; flex-shrink: 0; margin-top: 0.25rem; width: 28px; height: 28px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.cs-arrow.open { transform: rotate(45deg); border-color: var(--accent); color: var(--accent); }
 
-  /* SECTION HEADERS */
-  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3rem; }
-  .section-title { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
-  .section-line { flex: 1; height: 1px; background: var(--border); }
+.cs-body { display: none; border-top: 1px solid var(--border); }
+.cs-body.open { display: block; }
+.cs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.cs-col { padding: 1.5rem 1.75rem; border-right: 1px solid var(--border); }
+.cs-col:last-child { border-right: none; }
+.cs-col-title { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.85rem; }
+.cs-list { list-style: none; }
+.cs-list li { font-size: 0.83rem; color: var(--ink-light); line-height: 1.6; padding: 0.25rem 0 0.25rem 1rem; position: relative; }
+.cs-list li::before { content: attr(data-i); position: absolute; left: 0; color: var(--accent); font-size: 0.72rem; top: 0.35rem; }
+.cs-list.out li::before { color: var(--green); }
 
-  /* CASE STUDIES */
-  .case-study { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1.5rem; }
-  .cs-header {
-    padding: 2rem 2.5rem 1.75rem;
-    border-bottom: 1px solid transparent;
-    cursor: pointer;
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem;
-    transition: background 0.2s;
-    user-select: none;
-  }
-  .cs-header:hover { background: var(--cream); }
-  .cs-header.open { border-bottom-color: var(--border); }
-  .cs-num { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; color: #D0CBE0; line-height: 1; flex-shrink: 0; margin-top: 0.3rem; }
-  .cs-title-block { flex: 1; }
-  .cs-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; display: block; }
-  .cs-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; color: var(--ink); line-height: 1.3; margin-bottom: 0.6rem; }
-  .cs-subtitle { font-size: 0.87rem; color: var(--ink-muted); line-height: 1.65; max-width: 540px; }
-  .cs-toggle {
-    width: 32px; height: 32px; min-width: 32px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; color: var(--ink-muted);
-    transition: transform 0.3s;
-    margin-top: 0.2rem;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-  .cs-toggle.open { transform: rotate(45deg); border-color: var(--accent); color: var(--accent); }
+/* SKILLS GRID */
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.skill-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; }
+.skill-name { font-weight: 500; font-size: 0.88rem; color: var(--ink); margin-bottom: 0.35rem; }
+.skill-items { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; }
 
-  .cs-body { display: none; padding: 2rem 2.5rem; background: var(--cream); }
-  .cs-body.open { display: block; }
+/* TIMELINE - compact */
+.tl { position: relative; padding-left: 1.25rem; }
+.tl::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 1px; background: var(--border); }
+.tl-item { position: relative; padding-bottom: 1.75rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot { position: absolute; left: -1.25rem; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--white); border: 2px solid var(--accent); transform: translateX(-3.5px); }
+.tl-date { font-size: 0.72rem; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.tl-role { font-weight: 500; font-size: 0.92rem; color: var(--ink); }
+.tl-company { font-size: 0.82rem; color: var(--accent); margin-bottom: 0.35rem; }
+.tl-desc { font-size: 0.83rem; color: var(--ink-light); line-height: 1.7; max-width: 580px; }
 
-  .cs-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
-  .cs-block-title { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-  .cs-list { list-style: none; }
-  .cs-list li { font-size: 0.87rem; color: var(--ink-light); line-height: 1.65; padding: 0.3rem 0 0.3rem 1.2rem; position: relative; }
-  .cs-list li::before { content: attr(data-icon); position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.42rem; }
-  .cs-list.outcome li::before { color: var(--green); }
+/* BUILDER — compact */
+.builder-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.builder-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; }
+.builder-track { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; }
+.builder-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
+.builder-desc { font-size: 0.82rem; color: var(--ink-light); line-height: 1.65; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem; }
+.tag { font-size: 0.73rem; background: var(--cream-dark); border: 1px solid var(--border); color: var(--ink-muted); padding: 0.18rem 0.6rem; border-radius: 100px; }
 
-  /* BUILDER */
-  .builder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
-  .builder-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.75rem; }
-  .builder-card-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
-  .builder-card-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.6rem; }
-  .builder-card p { font-size: 0.88rem; color: var(--ink-light); line-height: 1.7; }
-  .tools-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
-  .tool-pill { background: var(--cream-dark); border: 1px solid var(--border); color: var(--ink-light); font-size: 0.77rem; padding: 0.22rem 0.7rem; border-radius: 2px; }
+/* BELIEFS — horizontal strip */
+.beliefs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 1.5rem; }
+.belief { background: var(--white); padding: 1.25rem; }
+.belief-n { font-family: var(--serif); font-size: 1.2rem; color: #C8C4DC; display: block; margin-bottom: 0.4rem; line-height: 1; }
+.belief-t { font-size: 0.8rem; color: var(--ink-light); line-height: 1.65; }
 
-  /* BELIEFS */
-  .beliefs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 3rem; }
-  .belief-item { background: var(--white); padding: 1.75rem; }
-  .belief-num { font-family: var(--serif); font-size: 1.6rem; color: #C8C4DC; font-weight: 400; display: block; margin-bottom: 0.6rem; line-height: 1; }
-  .belief-text { font-size: 0.9rem; color: var(--ink-light); line-height: 1.7; }
+/* PROJECTS */
+.project-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.project-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; text-decoration: none; display: block; transition: border-color 0.2s; }
+.project-card:hover { border-color: var(--accent); }
+.project-live { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 0.4rem; display: block; }
+.project-name { font-weight: 500; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.35rem; }
+.project-desc { font-size: 0.81rem; color: var(--ink-muted); line-height: 1.6; margin-bottom: 0.75rem; }
+.project-url { font-size: 0.78rem; color: var(--accent); font-weight: 500; }
 
-  /* MENTORSHIP STRIP */
-  .mentorship-strip {
-    background: var(--accent-light);
-    border: 1px solid #C8D4F5;
-    border-radius: 6px;
-    padding: 1.75rem 2rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    margin-top: 3rem;
-  }
-  .mentorship-icon {
-    width: 40px; height: 40px; border-radius: 4px;
-    background: var(--accent); display: flex; align-items: center;
-    justify-content: center; flex-shrink: 0; margin-top: 0.1rem;
-  }
-  .mentorship-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.35rem; }
-  .mentorship-desc { font-size: 0.87rem; color: var(--ink-light); line-height: 1.65; }
+/* PODCAST */
+.podcast { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.25rem; margin-top: 1rem; }
+.podcast-icon { width: 40px; height: 40px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.podcast-title { font-weight: 500; font-size: 0.9rem; color: var(--ink); }
+.podcast-sub { font-size: 0.8rem; color: var(--ink-muted); }
 
-  /* TIMELINE */
-  .timeline { position: relative; padding-left: 1.75rem; }
-  .timeline::before { content: ''; position: absolute; left: 0; top: 12px; bottom: 12px; width: 1px; background: var(--border); }
-  .tl-item { position: relative; margin-bottom: 2.75rem; }
-  .tl-dot { position: absolute; left: -1.75rem; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--white); border: 2px solid var(--accent); transform: translateX(-4.5px); }
-  .tl-date { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.3rem; }
-  .tl-role { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.15rem; }
-  .tl-company { font-size: 0.87rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 500; }
-  .tl-desc { font-size: 0.87rem; color: var(--ink-light); line-height: 1.75; max-width: 600px; }
-  .tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
-  .tl-tag { font-size: 0.71rem; color: var(--ink-muted); background: var(--cream-dark); border: 1px solid var(--border); padding: 0.15rem 0.6rem; border-radius: 2px; }
+/* CONTACT */
+#contact { background: var(--white); border-top: 1px solid var(--border); padding: 4rem 0; }
+.contact-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.contact-heading { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; color: var(--ink); line-height: 1.3; margin-bottom: 0.75rem; }
+.contact-sub { font-size: 0.88rem; color: var(--ink-light); line-height: 1.75; margin-bottom: 1.5rem; }
+.contact-links { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.5rem; }
+.contact-link { display: flex; align-items: center; gap: 0.65rem; font-size: 0.85rem; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.contact-link:hover { color: var(--accent); }
+.contact-icon { width: 30px; height: 30px; border-radius: 6px; background: var(--cream-dark); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
+.open-to { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+.open-to-title { font-weight: 500; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.85rem; }
+.open-to-list { list-style: none; }
+.open-to-list li { font-size: 0.83rem; color: var(--ink-light); padding: 0.3rem 0 0.3rem 1rem; position: relative; border-bottom: 1px solid var(--border); }
+.open-to-list li:last-child { border-bottom: none; }
+.open-to-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.38rem; }
 
-  /* CAPABILITIES */
-  .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .cap-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.75rem; }
-  .cap-icon {
-    width: 36px; height: 36px; background: var(--accent-light); border-radius: 4px;
-    display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
-  }
-  /* SVG icons instead of Unicode chars */
-  .cap-icon svg { width: 18px; height: 18px; }
-  .cap-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
-  .cap-desc { font-size: 0.85rem; color: var(--ink-light); line-height: 1.72; }
+/* DIVIDER */
+.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-  /* PROJECTS */
-  .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .project-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.75rem; text-decoration: none; display: block; transition: border-color 0.2s, box-shadow 0.2s; }
-  .project-card:hover { border-color: var(--accent-mid); box-shadow: 0 4px 20px rgba(61,82,160,0.07); }
-  .project-status { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; display: block; }
-  .project-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
-  .project-desc { font-size: 0.85rem; color: var(--ink-light); line-height: 1.65; margin-bottom: 1rem; }
-  .project-link { font-size: 0.8rem; color: var(--accent); font-weight: 500; }
+footer { text-align: center; padding: 1.5rem 2rem; font-size: 0.75rem; color: var(--ink-muted); background: var(--cream-dark); border-top: 1px solid var(--border); }
 
-  /* PODCAST */
-  .podcast-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.75rem 2rem; display: flex; align-items: center; gap: 1.75rem; }
-  .podcast-icon { width: 52px; height: 52px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.3rem; }
-  .podcast-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
-  .podcast-sub { font-size: 0.84rem; color: var(--ink-muted); margin-bottom: 0.75rem; }
+/* FADE IN */
+.fade { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade.in { opacity: 1; transform: none; }
 
-  /* CONTACT */
-  #contact { background: var(--white); border-top: 1px solid var(--border); padding: 0; }
-  .contact-inner { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  .contact-heading { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 500; color: var(--ink); line-height: 1.3; margin-bottom: 1rem; }
-  .contact-sub { font-size: 0.92rem; color: var(--ink-light); line-height: 1.8; margin-bottom: 2rem; }
-  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-  .contact-link { display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
-  .contact-link:hover { color: var(--accent); }
-  .contact-link-icon { width: 32px; height: 32px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
-  .open-to { background: var(--cream); border: 1px solid var(--border); border-radius: 6px; padding: 1.75rem; }
-  .open-to-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 1rem; }
-  .open-to-list { list-style: none; }
-  .open-to-list li { font-size: 0.87rem; color: var(--ink-light); padding: 0.35rem 0 0.35rem 1.1rem; position: relative; border-bottom: 1px solid var(--border); }
-  .open-to-list li:last-child { border-bottom: none; }
-  .open-to-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.78rem; top: 0.45rem; }
-
-  footer { text-align: center; padding: 2rem; font-size: 0.78rem; color: var(--ink-muted); border-top: 1px solid var(--border); background: var(--cream-dark); }
-  footer span { color: var(--accent); font-weight: 500; }
-
-  /* ANIMATIONS */
-  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-photo-col { display: none; }
-    .cs-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .builder-grid { grid-template-columns: 1fr; }
-    .beliefs-grid { grid-template-columns: 1fr; }
-    .cap-grid { grid-template-columns: 1fr 1fr; }
-    .project-grid { grid-template-columns: 1fr; }
-    .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .podcast-card { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .cs-header { padding: 1.5rem; }
-    .cs-body { padding: 1.5rem; }
-    section { padding: 4rem 0; }
-  }
-  @media (max-width: 480px) {
-    .cap-grid { grid-template-columns: 1fr; }
-  }
+/* RESPONSIVE */
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo-wrap { display: none; }
+  .stats-inner { flex-wrap: wrap; }
+  .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
+  .stat:nth-child(odd) { border-right: 1px solid var(--border); }
+  .stat:last-child { border-bottom: none; }
+  .cs-grid { grid-template-columns: 1fr; }
+  .cs-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .cs-col:last-child { border-bottom: none; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .builder-row { grid-template-columns: 1fr; }
+  .beliefs { grid-template-columns: 1fr 1fr; }
+  .project-row { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .podcast { flex-direction: column; align-items: flex-start; }
+  .section { padding: 3rem 0; }
+}
+@media (max-width: 440px) {
+  .beliefs { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo"><span class="nav-logo-wave">👋</span><span class="nav-logo-name">Deven Shah</span></a>
+  <a href="#hero" class="nav-logo">
+    <span>👋</span>
+    <span>Deven Shah</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
-    <li><a href="#builder">Builder</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#experience">Journey</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="Deven_Shah_CV.pdf" download class="nav-cv">Download CV</a></li>
+    <li><a href="Deven_Shah_CV.pdf" download class="nav-cta">Download CV</a></li>
   </ul>
-  <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#work" onclick="closeMobileMenu()">Work</a>
-  <a href="#builder" onclick="closeMobileMenu()">Builder</a>
-  <a href="#experience" onclick="closeMobileMenu()">Journey</a>
-  <a href="#projects" onclick="closeMobileMenu()">Projects</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <a href="Deven_Shah_CV.pdf" download style="color:var(--accent);font-weight:500;">Download CV</a>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#work" onclick="closeNav()">Work</a>
+  <a href="#about" onclick="closeNav()">About</a>
+  <a href="#experience" onclick="closeNav()">Journey</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+  <a href="Deven_Shah_CV.pdf" download>Download CV</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-text">
-      <span class="hero-tag">Senior Product Manager · Head of Product</span>
-      <h1 class="hero-name">I build platforms,<br/>not features.</h1>
-      <p class="hero-tagline">
-        9 years building AdTech, AI, and SaaS products. Currently heading Product at <em>Voiro</em>, a publisher monetisation platform used across India, MENA, and the US.
-        <br/><br/>
-        I don't build features in isolation. I build the platforms that teams depend on every day, where <em>money moves, operations scale, and decisions get made.</em>
+    <div>
+      <p class="hero-greeting">👋 Hi, I'm</p>
+      <h1 class="hero-name">Deven Shah</h1>
+      <p class="hero-title">Senior Product Manager · Head of Product at Voiro</p>
+      <p class="hero-bio">
+        9 years building <strong>AdTech, AI, and SaaS</strong> products across India, MENA, and the US. I own strategy, roadmap, and delivery — and I prototype before I spec, so engineering builds the right thing the first time.
       </p>
-      <div class="hero-meta">
-        <div class="hero-meta-item">📍 <span>Bangalore / Mumbai</span></div>
-        <div class="hero-meta-item">🏢 <span>Voiro Technology</span></div>
-        <div class="hero-meta-item">⏱ <span>9 years experience</span></div>
-      </div>
       <div class="hero-actions">
         <a href="mailto:devenshah4172@gmail.com" class="btn btn-primary">Let's talk →</a>
         <a href="Deven_Shah_CV.pdf" download class="btn btn-ghost">Download CV</a>
         <a href="https://linkedin.com/in/deven-shah-635210145/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
       </div>
     </div>
-    <div class="hero-photo-col">
-      <img src="photo.png" alt="Deven Shah" class="hero-photo" />
-      <p class="hero-company-note">
-        <strong>Head of Product</strong><br/>
-        Voiro Technology<br/>
-        AdTech · AI · SaaS
-      </p>
+    <div class="hero-photo-wrap">
+      <img src="photo.png" alt="Deven Shah" class="hero-photo" onerror="this.style.display='none'" />
     </div>
   </div>
 </section>
 
-<!-- PHILOSOPHY STRIP -->
-<div id="philosophy">
-  <div class="philosophy-inner">
-    <p class="philosophy-quote">"The best PMs close the gap between what we want and what we can ship. I try to be that bridge, not just by writing specs but by prototyping, validating, and building where it matters."</p>
-    <p class="philosophy-attribution">— Deven Shah</p>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-num">9</span>
+      <span class="stat-label">Years experience</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">25+</span>
+      <span class="stat-label">Features shipped</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Markets scaled</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">40%</span>
+      <span class="stat-label">Ops reduction</span>
+    </div>
   </div>
 </div>
 
 <!-- CASE STUDIES -->
-<section id="work">
+<section class="section" id="work">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Selected Work</h2>
-      <div class="section-line"></div>
-    </div>
+    <span class="section-label">Selected work</span>
+    <h2 class="section-title">Case studies</h2>
 
-    <div class="case-study fade-up">
+    <div class="cs fade">
       <div class="cs-header" onclick="toggleCS(this)">
         <span class="cs-num">01</span>
-        <div class="cs-title-block">
+        <div class="cs-meta">
           <span class="cs-tag">Revenue Platform · Voiro</span>
-          <h3 class="cs-title">Scaling a Revenue Platform When Everything Was on Fire</h3>
-          <p class="cs-subtitle">A major enterprise client was onboarding fast. The platform wasn't ready, workflows had gaps, numbers didn't reconcile, and the architecture couldn't handle the scale. I had to fix it while the train was moving.</p>
+          <div class="cs-title">Scaling a Revenue Platform When Everything Was on Fire</div>
+          <div class="cs-sub">Enterprise onboarding, broken workflows, numbers that didn't reconcile. Fixed it while the train was moving.</div>
         </div>
-        <div class="cs-toggle">+</div>
+        <div class="cs-arrow">+</div>
       </div>
       <div class="cs-body">
         <div class="cs-grid">
-          <div>
-            <p class="cs-block-title">The reality</p>
+          <div class="cs-col">
+            <div class="cs-col-title">The reality</div>
             <ul class="cs-list">
-              <li data-icon="●">Three markets live at once, India, MENA, US, each with different rules</li>
-              <li data-icon="●">Multiple pricing models running in parallel</li>
-              <li data-icon="●">Integrations breaking under load</li>
-              <li data-icon="●">Sales teams moving fast, governance trying to keep up</li>
+              <li data-i="●">Three markets live at once with different rules</li>
+              <li data-i="●">Multiple pricing models in parallel</li>
+              <li data-i="●">Integrations breaking under load</li>
+              <li data-i="●">Sales moving fast, governance lagging</li>
             </ul>
           </div>
-          <div>
-            <p class="cs-block-title">What I did</p>
+          <div class="cs-col">
+            <div class="cs-col-title">What I did</div>
             <ul class="cs-list">
-              <li data-icon="→">Rebuilt the line-item system to handle real-world complexity</li>
-              <li data-icon="→">Added validation guardrails that caught revenue leakage before it shipped</li>
-              <li data-icon="→">Replaced one-off customisations with standardised, reusable workflows</li>
-              <li data-icon="→">Designed reconciliation logic so finance could actually trust the numbers</li>
+              <li data-i="→">Rebuilt the line-item system for real complexity</li>
+              <li data-i="→">Added validation guardrails to catch revenue leakage</li>
+              <li data-i="→">Replaced one-off customisations with reusable workflows</li>
+              <li data-i="→">Designed reconciliation logic finance could trust</li>
             </ul>
           </div>
-          <div>
-            <p class="cs-block-title">What happened</p>
-            <ul class="cs-list outcome">
-              <li data-icon="✓">Enterprise client went live on schedule</li>
-              <li data-icon="✓">Multi-channel workflows stopped breaking</li>
-              <li data-icon="✓">Finance got a governance framework they could rely on</li>
-              <li data-icon="✓">Architecture scaled to new clients without rework</li>
-              <li data-icon="✓">Manual ops reduced by 40%</li>
+          <div class="cs-col">
+            <div class="cs-col-title">Outcome</div>
+            <ul class="cs-list out">
+              <li data-i="✓">Enterprise client live on schedule</li>
+              <li data-i="✓">Manual ops reduced by 40%</li>
+              <li data-i="✓">Architecture scaled without rework</li>
+              <li data-i="✓">Finance got a framework they could rely on</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="case-study fade-up">
+    <div class="cs fade">
       <div class="cs-header" onclick="toggleCS(this)">
         <span class="cs-num">02</span>
-        <div class="cs-title-block">
+        <div class="cs-meta">
           <span class="cs-tag">AI Product · Voiro Genie</span>
-          <h3 class="cs-title">Turning Raw Revenue Data Into Conversations</h3>
-          <p class="cs-subtitle">Sales managers were spending hours pulling reports. The data existed, but the access didn't. I led the product to bring AI-powered querying to non-technical users.</p>
+          <div class="cs-title">Turning Revenue Data Into Conversations</div>
+          <div class="cs-sub">Sales managers spent hours pulling reports. I led the product to let non-technical users query revenue data in plain language.</div>
         </div>
-        <div class="cs-toggle">+</div>
+        <div class="cs-arrow">+</div>
       </div>
       <div class="cs-body">
         <div class="cs-grid">
-          <div>
-            <p class="cs-block-title">The problem</p>
+          <div class="cs-col">
+            <div class="cs-col-title">The problem</div>
             <ul class="cs-list">
-              <li data-icon="●">Sales teams couldn't self-serve insights without an analyst</li>
-              <li data-icon="●">Data sat in siloed systems across ad servers and CRMs</li>
-              <li data-icon="●">No single source of truth for yield and performance</li>
-              <li data-icon="●">Missed revenue opportunities went undetected for weeks</li>
+              <li data-i="●">Sales couldn't self-serve without an analyst</li>
+              <li data-i="●">Data siloed across ad servers and CRMs</li>
+              <li data-i="●">No single source of truth for yield</li>
+              <li data-i="●">Missed opportunities went undetected for weeks</li>
             </ul>
           </div>
-          <div>
-            <p class="cs-block-title">What I did</p>
+          <div class="cs-col">
+            <div class="cs-col-title">What I did</div>
             <ul class="cs-list">
-              <li data-icon="→">Defined the product vision and roadmap for Voiro Genie</li>
-              <li data-icon="→">Partnered with engineering on the AI architecture and semantic search layer</li>
-              <li data-icon="→">Built Sales Opportunity Agent using LLM-powered scoring and churn detection</li>
-              <li data-icon="→">Integrated with Salesforce CRM for closed-loop pipeline intelligence</li>
+              <li data-i="→">Defined vision and roadmap for Voiro Genie</li>
+              <li data-i="→">Partnered with engineering on AI architecture</li>
+              <li data-i="→">Built Sales Opportunity Agent with LLM-powered scoring</li>
+              <li data-i="→">Integrated with Salesforce for pipeline intelligence</li>
             </ul>
           </div>
-          <div>
-            <p class="cs-block-title">What happened</p>
-            <ul class="cs-list outcome">
-              <li data-icon="✓">Sales pipeline efficiency improved by 30%</li>
-              <li data-icon="✓">Non-technical users could query revenue data in plain language</li>
-              <li data-icon="✓">Missed advertiser opportunities surfaced automatically</li>
-              <li data-icon="✓">Voiro shifted from a reporting tool to an intelligence platform</li>
+          <div class="cs-col">
+            <div class="cs-col-title">Outcome</div>
+            <ul class="cs-list out">
+              <li data-i="✓">Pipeline efficiency improved 30%</li>
+              <li data-i="✓">Non-technical users querying data in plain language</li>
+              <li data-i="✓">Missed opportunities surfaced automatically</li>
+              <li data-i="✓">Voiro became an intelligence platform</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="case-study fade-up">
+    <div class="cs fade">
       <div class="cs-header" onclick="toggleCS(this)">
         <span class="cs-num">03</span>
-        <div class="cs-title-block">
+        <div class="cs-meta">
           <span class="cs-tag">0 to 1 · Brand Center</span>
-          <h3 class="cs-title">Building a Self-Serve Media Buying Platform From Zero</h3>
-          <p class="cs-subtitle">Publishers needed a unified way to manage direct digital media buying, without stitching together spreadsheets, emails, and ad server exports. I led Brand Center from concept to closed beta.</p>
+          <div class="cs-title">Building a Self-Serve Media Buying Platform From Zero</div>
+          <div class="cs-sub">Publishers managing deals over email and spreadsheets. I led Brand Center from concept to closed beta with 5 major publishers.</div>
         </div>
-        <div class="cs-toggle">+</div>
+        <div class="cs-arrow">+</div>
       </div>
       <div class="cs-body">
         <div class="cs-grid">
-          <div>
-            <p class="cs-block-title">The challenge</p>
+          <div class="cs-col">
+            <div class="cs-col-title">The challenge</div>
             <ul class="cs-list">
-              <li data-icon="●">No unified tool for direct digital media buying</li>
-              <li data-icon="●">Publishers managing deals across spreadsheets and email</li>
-              <li data-icon="●">Advertisers had no real-time visibility into campaign performance</li>
-              <li data-icon="●">Reporting was manual, delayed, and error-prone</li>
+              <li data-i="●">No unified tool for direct media buying</li>
+              <li data-i="●">Deals managed across email and spreadsheets</li>
+              <li data-i="●">No real-time campaign visibility for advertisers</li>
+              <li data-i="●">Reporting manual, delayed, and error-prone</li>
             </ul>
           </div>
-          <div>
-            <p class="cs-block-title">What I did</p>
+          <div class="cs-col">
+            <div class="cs-col-title">What I did</div>
             <ul class="cs-list">
-              <li data-icon="→">Led product discovery, design, and roadmap for Brand Center end-to-end</li>
-              <li data-icon="→">Defined the advertiser and publisher experience from first principles</li>
-              <li data-icon="→">Ran closed beta with Zee5, JioCinema, Paytm, PhonePe, and Rooter</li>
-              <li data-icon="→">Used prototypes to validate key workflows before engineering built them</li>
+              <li data-i="→">Led product discovery, design, and roadmap end-to-end</li>
+              <li data-i="→">Defined advertiser and publisher experience from scratch</li>
+              <li data-i="→">Ran closed beta with Zee5, JioCinema, Paytm, PhonePe, Rooter</li>
+              <li data-i="→">Prototyped key workflows before engineering built them</li>
             </ul>
           </div>
-          <div>
-            <p class="cs-block-title">What happened</p>
-            <ul class="cs-list outcome">
-              <li data-icon="✓">Closed beta live with 5 premium publishers</li>
-              <li data-icon="✓">Replaced manual workflows with a unified platform</li>
-              <li data-icon="✓">Validated product-market fit before full build</li>
-              <li data-icon="✓">Foundation for Voiro's direct advertising business</li>
+          <div class="cs-col">
+            <div class="cs-col-title">Outcome</div>
+            <ul class="cs-list out">
+              <li data-i="✓">Closed beta with 5 premium publishers</li>
+              <li data-i="✓">Replaced manual workflows with a unified platform</li>
+              <li data-i="✓">PMF validated before full engineering build</li>
+              <li data-i="✓">Foundation for Voiro's direct ad business</li>
             </ul>
           </div>
         </div>
@@ -609,238 +425,164 @@
   </div>
 </section>
 
-<!-- BUILDER SECTION -->
-<section id="builder" style="background:var(--cream-dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+<hr class="divider" />
+
+<!-- ABOUT / BUILDER -->
+<section class="section" id="about">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">I don't just write specs, I build</h2>
-      <div class="section-line"></div>
-    </div>
+    <span class="section-label">How I work</span>
+    <h2 class="section-title">Builder mindset</h2>
 
-    <p style="font-size:0.95rem;color:var(--ink-light);line-height:1.85;max-width:640px;margin-bottom:2.5rem;">
-      I'm the PM who opens Figma, spins up a prototype, and walks into the engineering review with something tangible. My workflow: <strong style="color:var(--ink);">design → prototype → validate → spec → ship.</strong>
-      <br/><br/>
-      For internal or non-core tools, I build and ship directly with AI-assisted tooling. For core product features, I prototype first, validate with stakeholders, then hand engineering a tested spec. Zero wasted sprint cycles.
-    </p>
-
-    <div class="builder-grid fade-up">
+    <div class="builder-row fade">
       <div class="builder-card">
-        <div class="builder-card-label">Prototype track</div>
-        <div class="builder-card-title">Design and validate before a line of code</div>
-        <p>For core features: prototype in Lovable, get stakeholder sign-off, write a PRD with acceptance criteria engineers can ship from. This catches wrong assumptions before they become wrong code.</p>
-        <div class="tools-row">
-          <span class="tool-pill">Lovable</span>
-          <span class="tool-pill">Figma</span>
-          <span class="tool-pill">PRD with AC</span>
-          <span class="tool-pill">Stakeholder validation</span>
+        <div class="builder-track">Prototype track</div>
+        <div class="builder-title">Validate before engineering touches it</div>
+        <div class="builder-desc">For core features: prototype in Lovable, validate with stakeholders, write a PRD with AC engineers can ship from. No guesswork in production.</div>
+        <div class="tags">
+          <span class="tag">Lovable</span><span class="tag">Figma</span><span class="tag">PRD with AC</span><span class="tag">Stakeholder validation</span>
         </div>
       </div>
       <div class="builder-card">
-        <div class="builder-card-label">Ship track</div>
-        <div class="builder-card-title">Build and deploy internal tools directly</div>
-        <p>For internal or non-core tooling: scope the problem, build with AI-assisted coding tools, deploy on Vercel. The Release Notes tool went from idea to live in days. Not sprints..</p>
-        <div class="tools-row">
-          <span class="tool-pill">AI coding tools</span>
-          <span class="tool-pill">Vercel</span>
-          <span class="tool-pill">n8n</span>
-          <span class="tool-pill">Rapid deployment</span>
+        <div class="builder-track">Ship track</div>
+        <div class="builder-title">Build and deploy internal tools directly</div>
+        <div class="builder-desc">For internal or non-core tools: scope, build with AI-assisted tooling, deploy on Vercel. The Release Notes tool went from idea to live in days, not sprints.</div>
+        <div class="tags">
+          <span class="tag">AI coding tools</span><span class="tag">Vercel</span><span class="tag">n8n</span><span class="tag">Rapid deployment</span>
         </div>
       </div>
     </div>
 
-    <div class="section-header" style="margin-bottom:1.5rem;">
-      <h3 style="font-family:var(--serif);font-size:1.35rem;font-weight:500;color:var(--ink);">What I believe</h3>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="beliefs-grid fade-up">
-      <div class="belief-item">
-        <span class="belief-num">01</span>
-        <p class="belief-text">Revenue systems need guardrails, not just flexibility. Every edge case you don't design for becomes an incident.</p>
+    <div class="beliefs fade">
+      <div class="belief">
+        <span class="belief-n">01</span>
+        <p class="belief-t">Revenue systems need guardrails. Every undesigned edge case becomes an incident.</p>
       </div>
-      <div class="belief-item">
-        <span class="belief-num">02</span>
-        <p class="belief-text">Architecture decisions compound. Get them right early, or spend three quarters untangling them.</p>
+      <div class="belief">
+        <span class="belief-n">02</span>
+        <p class="belief-t">Architecture compounds. Get it right early or spend quarters untangling it.</p>
       </div>
-      <div class="belief-item">
-        <span class="belief-num">03</span>
-        <p class="belief-text">Build platforms, not one-off account hacks. If you're solving it once for one client, you're doing it wrong.</p>
+      <div class="belief">
+        <span class="belief-n">03</span>
+        <p class="belief-t">Build platforms, not one-off hacks. Solving it once for one client is doing it wrong.</p>
       </div>
-      <div class="belief-item">
-        <span class="belief-num">04</span>
-        <p class="belief-text">Use AI where it saves real time, not where it sounds cool. The prototype track is real. The hype isn't the point.</p>
-      </div>
-    </div>
-
-    <!-- Mentorship strip -->
-    <div class="mentorship-strip fade-up">
-      <div class="mentorship-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="10" cy="6" r="3.5" stroke="white" stroke-width="1.5"/>
-          <path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M15 10l1.5 1.5L19 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div>
-        <div class="mentorship-title">Mentoring the next generation of PMs</div>
-        <p class="mentorship-desc">I mentor junior and aspiring product managers at AirTribe, helping them develop product thinking, build structured roadmaps, and make data-driven decisions. I also take on product consulting engagements where I can help teams go from zero to one or untangle complex platform problems.</p>
+      <div class="belief">
+        <span class="belief-n">04</span>
+        <p class="belief-t">Use AI where it saves real time. The prototype track is real. The hype isn't the point.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
+<hr class="divider" />
+
+<!-- SKILLS -->
+<section class="section" style="background: var(--white);">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Journey</h2>
-      <div class="section-line"></div>
+    <span class="section-label">Capabilities</span>
+    <h2 class="section-title">What I bring</h2>
+    <div class="skills-grid fade">
+      <div class="skill-card">
+        <div class="skill-name">Product Strategy</div>
+        <div class="skill-items">Roadmapping, 0 to 1 builds, GTM, OKRs, stakeholder alignment, prioritisation under pressure</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Systems Thinking</div>
+        <div class="skill-items">Integration architecture, pricing engines, reconciliation logic, validation guardrails, multi-team workflows</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">AdTech Domain</div>
+        <div class="skill-items">GAM, DV360, Criteo, VMAX, Invidi, yield optimisation, campaign management, line-item reconciliation, CPW/CPD pricing</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">AI Products</div>
+        <div class="skill-items">Conversational BI, LLM-powered agents, AI-assisted search. Built features non-technical users actually use every day</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Builder Tools</div>
+        <div class="skill-items">Lovable, AI coding tools, Figma, n8n, Vercel. PRDs with acceptance criteria engineers can ship from</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">Data and Analytics</div>
+        <div class="skill-items">Mixpanel, Power BI, Tableau, QuickSight, LookerStudio, SQL. Instrument first, iterate second</div>
+      </div>
     </div>
-    <div class="timeline">
-      <div class="tl-item fade-up">
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- JOURNEY -->
+<section class="section" id="experience">
+  <div class="container">
+    <span class="section-label">Experience</span>
+    <h2 class="section-title">Journey</h2>
+    <div class="tl fade">
+      <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Sep 2024 to Present</div>
-        <div class="tl-role">Senior Product Manager · Head of Product</div>
+        <div class="tl-role">Senior PM · Head of Product</div>
         <div class="tl-company">Voiro Technology</div>
-        <div class="tl-desc">Leading the full product function, strategy, roadmap, team, and delivery for a B2B AdTech SaaS platform across India, MENA, and the US. Shipping AI-powered monetisation tools, enterprise integrations, and revenue systems used daily by publishers like Myntra, Flipkart, Zee5, and Paytm.</div>
-        <div class="tl-tags">
-          <span class="tl-tag">Head of Product</span><span class="tl-tag">AI Products</span><span class="tl-tag">AdTech</span><span class="tl-tag">Revenue Systems</span><span class="tl-tag">Team Leadership</span>
-        </div>
+        <div class="tl-desc">Leading product strategy, roadmap, and delivery for a B2B AdTech SaaS platform across India, MENA, and the US. Managing a team of PMs. Shipping AI-powered monetisation tools used by Myntra, Flipkart, Zee5, Carrefour, and Paytm.</div>
       </div>
-      <div class="tl-item fade-up">
+      <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Apr 2021 to Aug 2024</div>
         <div class="tl-role">Product Manager</div>
         <div class="tl-company">Voiro Technology</div>
-        <div class="tl-desc">Owned roadmap and delivery of 25+ features with greater than 90% achieving 95%+ adoption. Led Brand Center from 0 to closed beta. Drove Mixpanel instrumentation strategy across 5 enterprise clients. Improved platform performance by 28%.</div>
-        <div class="tl-tags">
-          <span class="tl-tag">0 to 1</span><span class="tl-tag">Brand Center</span><span class="tl-tag">Mixpanel</span><span class="tl-tag">Enterprise</span>
-        </div>
+        <div class="tl-desc">25+ features shipped with 95%+ adoption. Led Brand Center from 0 to closed beta. Drove Mixpanel instrumentation across 5 enterprise clients. Platform performance improved by 28%.</div>
       </div>
-      <div class="tl-item fade-up">
+      <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">May 2019 to Mar 2021</div>
         <div class="tl-role">Senior Executive, Ad Revenue</div>
         <div class="tl-company">Disney+ Hotstar</div>
-        <div class="tl-desc">Owned ad revenue reporting and campaign performance products during IPL 2020 and Cricket World Cup. Reduced reporting turnaround by 70%. Built Power BI and Google Data Studio dashboards for leadership. Improved campaign performance by 11% through A/B testing.</div>
-        <div class="tl-tags">
-          <span class="tl-tag">Ad Revenue</span><span class="tl-tag">IPL 2020</span><span class="tl-tag">Campaign Management</span><span class="tl-tag">BI Dashboards</span>
-        </div>
+        <div class="tl-desc">Ad revenue reporting product during IPL 2020 and Cricket World Cup. Reduced turnaround by 70%. Campaign performance improved 11% through A/B testing.</div>
       </div>
-      <div class="tl-item fade-up">
+      <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Jul 2017 to Apr 2019</div>
         <div class="tl-role">Product Operations Analyst</div>
         <div class="tl-company">Media.net</div>
-        <div class="tl-desc">Supported product and business decisions with SQL and Hive data analysis. Contributed to Singapore market launch. Primary contact for ad-serving implementation and publisher onboarding.</div>
-        <div class="tl-tags">
-          <span class="tl-tag">Ad Tech</span><span class="tl-tag">SQL</span><span class="tl-tag">Market Expansion</span>
-        </div>
+        <div class="tl-desc">Product and business decisions supported with SQL and Hive data analysis. Contributed to Singapore market launch. Ad-serving implementation and publisher onboarding.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CAPABILITIES -->
-<section style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">What I bring</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="cap-grid">
-      <div class="cap-card fade-up">
-        <div class="cap-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="#3D52A0" stroke-width="1.5" stroke-linecap="round">
-            <circle cx="9" cy="9" r="7"/><circle cx="9" cy="9" r="3"/>
-          </svg>
-        </div>
-        <div class="cap-title">Product Strategy</div>
-        <p class="cap-desc">Roadmapping, 0 to 1 builds, go-to-market, stakeholder alignment, and prioritisation when everything feels urgent. OKRs that connect to real revenue outcomes.</p>
-      </div>
-      <div class="cap-card fade-up">
-        <div class="cap-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="#3D52A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="9,2 16,6 16,12 9,16 2,12 2,6"/>
-            <polygon points="9,6 12,8 12,11 9,13 6,11 6,8"/>
-          </svg>
-        </div>
-        <div class="cap-title">Systems Thinking</div>
-        <p class="cap-desc">Integration architecture, pricing engines, reconciliation logic, validation guardrails, multi-team workflow design. I think in platforms, not features.</p>
-      </div>
-      <div class="cap-card fade-up">
-        <div class="cap-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="#3D52A0" stroke-width="1.5" stroke-linecap="round">
-            <path d="M9 2v4M9 12v4M2 9h4M12 9h4"/><circle cx="9" cy="9" r="2.5"/>
-          </svg>
-        </div>
-        <div class="cap-title">Builder Mindset</div>
-        <p class="cap-desc">Lovable for prototyping, AI coding tools for internal builds, Figma for systems and flows, n8n for automation. PRDs with acceptance criteria engineers can ship from.</p>
-      </div>
-      <div class="cap-card fade-up">
-        <div class="cap-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="#3D52A0" stroke-width="1.5" stroke-linecap="round">
-            <rect x="2" y="3" width="14" height="10" rx="1.5"/>
-            <path d="M6 17h6M9 13v4"/>
-          </svg>
-        </div>
-        <div class="cap-title">AdTech Domain</div>
-        <p class="cap-desc">GAM, DV360, Criteo, VMAX, Invidi. Yield optimisation, campaign management, line-item reconciliation, CPW/CPD pricing. 9 years depth across the ad stack.</p>
-      </div>
-      <div class="cap-card fade-up">
-        <div class="cap-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="#3D52A0" stroke-width="1.5" stroke-linecap="round">
-            <path d="M3 12l3-3 3 3 6-7"/>
-            <circle cx="9" cy="15" r="1.5"/>
-          </svg>
-        </div>
-        <div class="cap-title">AI Products</div>
-        <p class="cap-desc">Conversational BI, LLM-powered agents, AI-assisted search. Built and shipped AI features that non-technical users actually use in their daily workflow.</p>
-      </div>
-      <div class="cap-card fade-up">
-        <div class="cap-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="#3D52A0" stroke-width="1.5" stroke-linecap="round">
-            <path d="M2 14l4-4 3 3 4-5 3 3"/>
-            <path d="M2 3h14"/>
-          </svg>
-        </div>
-        <div class="cap-title">Data and Analytics</div>
-        <p class="cap-desc">Mixpanel, Power BI, Tableau, QuickSight, LookerStudio, SQL. I instrument first, then iterate. Data infrastructure is a product decision.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<hr class="divider" />
 
 <!-- PROJECTS -->
-<section id="projects">
+<section class="section">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Live Projects</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="project-grid">
-      <a href="https://releasenotes-one.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card fade-up">
-        <span class="project-status">● Live on Vercel</span>
-        <div class="project-title">Release Notes Automation Tool</div>
-        <p class="project-desc">Internal CSM tool that auto-generates client-facing release notes from Jira tickets. OTP auth, AI-generated notes, inline editing, drag-to-reorder, and multi-format export. Built and shipped independently using AI-assisted coding tools.</p>
-        <span class="project-link">releasenotes-one.vercel.app →</span>
+    <span class="section-label">Live work</span>
+    <h2 class="section-title">Projects and presence</h2>
+    <div class="project-row fade">
+      <a href="https://releasenotes-one.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card">
+        <span class="project-live">● Live on Vercel</span>
+        <div class="project-name">Release Notes Automation Tool</div>
+        <div class="project-desc">CSM tool that auto-generates release notes from Jira. OTP auth, AI-generated notes, inline editing, multi-format export. Built and shipped independently.</div>
+        <span class="project-url">releasenotes-one.vercel.app →</span>
       </a>
-      <a href="https://deven-shah.lovable.app" target="_blank" rel="noopener noreferrer" class="project-card fade-up">
-        <span class="project-status">● Live</span>
-        <div class="project-title">This Portfolio</div>
-        <p class="project-desc">Designed and prototyped in Lovable, then refined and deployed. A working example of the prototype-first workflow, from idea to live site without involving an engineering team.</p>
-        <span class="project-link">deven-shah.lovable.app →</span>
+      <a href="https://deven-shah.lovable.app" target="_blank" rel="noopener noreferrer" class="project-card">
+        <span class="project-live">● Live</span>
+        <div class="project-name">This Portfolio</div>
+        <div class="project-desc">Prototyped in Lovable, refined and deployed. Built the same way I build internal tools — without involving an engineering team.</div>
+        <span class="project-url">deven-shah.lovable.app →</span>
       </a>
     </div>
-
-    <div style="margin-top:1.5rem;" class="fade-up">
-      <div class="podcast-card">
-        <div class="podcast-icon">🎙</div>
-        <div>
-          <div class="podcast-title">Guest on Voiro Podcast</div>
-          <div class="podcast-sub">Invited to speak on AI, GenAI, and the future of ad tech monetisation.</div>
-          <a href="https://www.linkedin.com/posts/voiro_voiropodcast-ai-genai-activity-7260508864909856770-zKnD/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem;padding:0.45rem 1rem;">Listen on LinkedIn →</a>
-        </div>
+    <div class="podcast fade">
+      <div class="podcast-icon">🎙</div>
+      <div>
+        <div class="podcast-title">Guest on Voiro Podcast</div>
+        <div class="podcast-sub">Spoke on AI, GenAI, and the future of ad tech monetisation.</div>
+      </div>
+      <a href="https://www.linkedin.com/posts/voiro_voiropodcast-ai-genai-activity-7260508864909856770-zKnD/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-left:auto;white-space:nowrap;flex-shrink:0;">Listen →</a>
+    </div>
+    <div class="podcast fade" style="margin-top:1rem;">
+      <div class="podcast-icon">🎓</div>
+      <div>
+        <div class="podcast-title">Mentoring aspiring PMs</div>
+        <div class="podcast-sub">Mentoring junior and aspiring PMs at AirTribe on product thinking, roadmaps, and data-driven decision-making. Open to product consulting engagements.</div>
       </div>
     </div>
   </div>
@@ -850,34 +592,31 @@
 <section id="contact">
   <div class="contact-inner">
     <div>
-      <h2 class="contact-heading">If you need someone who can own the problem end to end — let's talk.</h2>
-      <p class="contact-sub">Open to product leadership roles, senior IC PM positions, and product consulting engagements, anywhere I can build from scratch, fix what's broken, or bring AI into the mix. Based in Bangalore and Mumbai. Open to remote or hybrid.</p>
-      <div class="contact-links" style="margin-bottom:1.5rem;">
+      <h2 class="contact-heading">Let's talk.</h2>
+      <p class="contact-sub">Open to product leadership roles, senior IC PM positions, and consulting engagements. Based in Bangalore and Mumbai. Remote or hybrid welcome.</p>
+      <div class="contact-links">
         <a href="mailto:devenshah4172@gmail.com" class="contact-link">
-          <div class="contact-link-icon">✉</div>
-          devenshah4172@gmail.com
+          <div class="contact-icon">✉</div>devenshah4172@gmail.com
         </a>
         <a href="https://linkedin.com/in/deven-shah-635210145/" target="_blank" rel="noopener noreferrer" class="contact-link">
-          <div class="contact-link-icon" style="font-size:0.75rem;font-weight:600;">in</div>
-          linkedin.com/in/deven-shah-635210145
+          <div class="contact-icon" style="font-size:0.72rem;font-weight:600;">in</div>deven-shah-635210145
         </a>
         <a href="tel:+917208420746" class="contact-link">
-          <div class="contact-link-icon">☎</div>
-          +91 7208420746
+          <div class="contact-icon">☎</div>+91 7208420746
         </a>
       </div>
-      <a href="Deven_Shah_CV.pdf" download class="btn btn-primary" style="display:inline-flex;">Download CV →</a>
+      <a href="Deven_Shah_CV.pdf" download class="btn btn-primary">Download CV →</a>
     </div>
     <div>
       <div class="open-to">
         <div class="open-to-title">Open to</div>
         <ul class="open-to-list">
-          <li>Head of Product / Director of Product roles</li>
+          <li>Head of Product / Director of Product</li>
           <li>Senior PM at high-growth startups (Series B/C/D)</li>
-          <li>IC PM at big tech, AdTech or monetisation teams</li>
-          <li>AI-first product companies building real systems</li>
+          <li>IC PM at big tech — AdTech or monetisation</li>
+          <li>AI-first companies building real systems</li>
           <li>Product consulting engagements</li>
-          <li>0 to 1 product builds with a strong engineering team</li>
+          <li>0 to 1 builds with a strong engineering team</li>
         </ul>
       </div>
     </div>
@@ -885,47 +624,32 @@
 </section>
 
 <footer>
-  <p>Built by <span>Deven Shah</span> using AI-assisted tooling · Hosted on Vercel · 2026</p>
+  Built by Deven Shah · AI-assisted tooling · Vercel · 2026
 </footer>
 
 <script>
-  // Mobile menu
-  function toggleMobileMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-  function closeMobileMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-  }
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
-  // Case study toggle
-  function toggleCS(header) {
-    const body = header.nextElementSibling;
-    const toggle = header.querySelector('.cs-toggle');
-    const isOpen = body.classList.contains('open');
-    document.querySelectorAll('.cs-body').forEach(b => b.classList.remove('open'));
-    document.querySelectorAll('.cs-toggle').forEach(t => t.classList.remove('open'));
-    document.querySelectorAll('.cs-header').forEach(h => h.classList.remove('open'));
-    if (!isOpen) {
-      body.classList.add('open');
-      toggle.classList.add('open');
-      header.classList.add('open');
+function toggleCS(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.cs-arrow');
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.cs-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.cs-arrow').forEach(a => a.classList.remove('open'));
+  if (!isOpen) { body.classList.add('open'); arrow.classList.add('open'); }
+}
+
+let n = 0;
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), n++ * 80);
+      obs.unobserve(e.target);
     }
-  }
-
-  // Scroll animations, fixed stagger counter
-  let fadeCounter = 0;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const delay = fadeCounter * 90;
-        fadeCounter++;
-        setTimeout(() => entry.target.classList.add('visible'), delay);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
