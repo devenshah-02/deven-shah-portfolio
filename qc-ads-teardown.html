@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quick Commerce Ads: A Product Teardown — Deven Shah</title>
+<meta name="description" content="A product manager's analysis of advertising products across Blinkit, Zepto, Swiggy Instamart, and JioMart." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233D3935'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='white' font-weight='500'>D</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #FAF8F5; --cream-dark: #F0EDE8; --ink: #1C1C1E; --ink-light: #4A4A52;
+  --ink-muted: #8A8A96; --accent: #3D3935; --accent-light: #F0EDE8;
+  --border: #E4E0DA; --white: #FFFFFF; --green: #2a8a5e;
+  --serif: 'Playfair Display', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,248,245,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); height: 54px; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--ink); font-family: var(--serif); font-size: 1rem; font-weight: 400; }
+.nav-back { font-size: 0.82rem; color: var(--accent); text-decoration: none; }
+.nav-back:hover { text-decoration: underline; }
+.hero { padding: 100px 0 4rem; border-bottom: 1px solid var(--border); }
+.container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+.tag { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.28rem 0.8rem; border-radius: 100px; margin-bottom: 1rem; }
+.hero-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 500; color: var(--ink); line-height: 1.2; margin-bottom: 1rem; }
+.hero-sub { font-size: 0.95rem; color: var(--ink-light); line-height: 1.85; max-width: 600px; margin-bottom: 1.75rem; }
+.meta-row { display: flex; gap: 2rem; flex-wrap: wrap; }
+.meta-item { font-size: 0.78rem; color: var(--ink-muted); }
+.meta-item strong { color: var(--ink-light); font-weight: 400; }
+.section { padding: 4rem 0; }
+.section-alt { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; display: block; }
+.section-title { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; color: var(--ink); margin-bottom: 1.5rem; }
+.insight { background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+.insight-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+.insight p { font-size: 0.88rem; color: var(--ink-light); line-height: 1.7; }
+.stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2rem; }
+.stat-box { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; text-align: center; }
+.stat-n { font-family: var(--serif); font-size: 1.8rem; font-weight: 500; color: var(--accent); }
+.stat-l { font-size: 0.78rem; color: var(--ink-muted); margin-top: 4px; }
+.platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+.platform-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+.platform-name { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
+.platform-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 1rem; display: block; }
+.format-list { list-style: none; }
+.format-list li { font-size: 0.82rem; color: var(--ink-light); padding: 0.28rem 0 0.28rem 1rem; position: relative; border-bottom: 1px solid var(--border); line-height: 1.55; }
+.format-list li:last-child { border-bottom: none; }
+.format-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.72rem; top: 0.36rem; }
+.platform-stat { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); font-size: 0.76rem; color: var(--ink-muted); line-height: 1.6; }
+.platform-stat strong { color: var(--accent); }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin: 1.5rem 0; }
+.comp-table th { background: var(--ink); color: var(--white); padding: 0.7rem 0.9rem; text-align: left; font-weight: 500; font-size: 0.75rem; }
+.comp-table td { padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--ink-light); }
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table tr:nth-child(even) td { background: var(--cream); }
+.comp-table .hi { color: var(--accent); font-weight: 400; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+.col-box { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+.col-box-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+.check-list { list-style: none; }
+.check-list li { font-size: 0.82rem; color: var(--ink-light); padding: 0.3rem 0 0.3rem 1rem; position: relative; border-bottom: 1px solid var(--border); }
+.check-list li:last-child { border-bottom: none; }
+.check-list li span { position: absolute; left: 0; font-size: 0.75rem; top: 0.36rem; }
+.opp-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+.opp-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+.opp-num { font-family: var(--serif); font-size: 1.4rem; color: #C8C4DC; font-weight: 400; display: block; margin-bottom: 0.4rem; line-height: 1; }
+.opp-title { font-size: 0.85rem; font-weight: 500; color: var(--ink); margin-bottom: 0.35rem; }
+.opp-desc { font-size: 0.78rem; color: var(--ink-light); line-height: 1.65; }
+.pm-lens { background: var(--ink); padding: 3.5rem 0; }
+.lens-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.lens-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1.25rem; }
+.lens-q { font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.lens-a { font-size: 0.85rem; color: rgba(255,255,255,0.82); line-height: 1.65; }
+footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--ink-muted); border-top: 1px solid var(--border); background: var(--cream-dark); }
+.fade { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade.in { opacity: 1; transform: none; }
+@media (max-width: 660px) {
+  .platform-grid, .two-col, .opp-grid, .lens-grid, .stats-row { grid-template-columns: 1fr; }
+  .comp-table { font-size: 0.72rem; }
+  .comp-table th, .comp-table td { padding: 0.45rem 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://devenshah.in" class="nav-logo">👋 Deven Shah</a>
+  <a href="https://devenshah.in" class="nav-back">← Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="container">
+    <span class="tag">Product Teardown · Quick Commerce Ads</span>
+    <h1 class="hero-title">Quick Commerce Ads:<br/>A Product Manager's Teardown</h1>
+    <p class="hero-sub">I went deep on how six platforms actually sell advertising — Blinkit, Zepto, Swiggy Instamart, JioMart, Amazon Now, and BB Now. The formats, the pricing, the targeting mechanics, and where each one is surprisingly thin. This is what I found worth paying attention to.</p>
+    <div class="meta-row">
+      <div class="meta-item"><strong>By</strong> Deven Shah</div>
+      <div class="meta-item"><strong>Context</strong> Independent product analysis</div>
+      <div class="meta-item"><strong>Updated</strong> April 2026</div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <span class="label">Context</span>
+    <h2 class="section-title">This is not just digital advertising on a faster app</h2>
+    <p style="font-size:0.92rem;color:var(--ink-light);line-height:1.85;margin-bottom:1rem;">The consumer opening Blinkit at 7am already knows they need milk. There is no research phase, no comparison tab, no cart abandonment email to recover them with. The whole funnel — impression, decision, checkout — happens in one session. Usually under 10 minutes. That is a different product to design for.</p>
+    <p style="font-size:0.92rem;color:var(--ink-light);line-height:1.85;">Ad budgets have followed. QC platforms went from 3 to 5% of digital spend two years ago to 15 to 20% today. Some FMCG brands are at 50%+. The conversion data is hard to argue with — QC platforms are reporting 30% click-to-conversion rates compared to 10% on standard Amazon. Blinkit alone now has ~45% of India's QC market, with Instamart at 27% and Zepto at 21%. SKU-level attribution makes the ROI visible in a way that brand campaigns never quite managed.</p>
+
+    <div class="insight fade">
+      <div class="insight-label">PM observation</div>
+      <p>The thing that struck me most is that ad visibility here is inventory-dependent. Out of stock at the specific dark store serving your pincode? Your ad does not show — no matter what you are bidding. I have not seen a traditional ad server built to handle that constraint. Most just ignore it and let the advertiser figure out why their ROAS dropped.</p>
+    </div>
+
+    <div class="stats-row fade">
+      <div class="stat-box"><div class="stat-n">10 min</div><div class="stat-l">From ad impression to delivered order</div></div>
+      <div class="stat-box"><div class="stat-n">15-20%</div><div class="stat-l">of brand digital budgets, up from 3-5% two years ago</div></div>
+      <div class="stat-box"><div class="stat-n">10-15</div><div class="stat-l">SKUs visible per category screen — that is the whole shelf</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <span class="label">Platform analysis</span>
+    <h2 class="section-title">What each of the six platforms actually sells</h2>
+    <div class="platform-grid">
+      <div class="platform-card fade">
+        <div class="platform-name">Blinkit</div>
+        <span class="platform-tag">Self-serve via Brand Central · Shifted to 1P inventory model Sept 2025</span>
+        <ul class="format-list">
+          <li>Product Boosters — keyword-based sponsored search, top of results</li>
+          <li>Sponsored Brand Banners — homepage and category feeds</li>
+          <li>Category Page Takeovers — premium category visibility</li>
+          <li>Brand Stores — dedicated full-catalogue pages</li>
+        </ul>
+        <div class="platform-stat">CPC: <strong>Rs. 5 to Rs. 50</strong> per click (third-party reported; Blinkit does not publish official rates) · Entry: Rs. 25,000 to Rs. 50,000 test budget typical for new brands · Real-time SKU-level ROAS tracking · ~1,800 dark stores as of late 2025, targeting 3,000 by March 2027</div>
+      </div>
+      <div class="platform-card fade">
+        <div class="platform-name">Zepto</div>
+        <span class="platform-tag">AI-powered via Jarvis</span>
+        <ul class="format-list">
+          <li>Sponsored Search — keyword-targeted listings</li>
+          <li>Banner and Display Ads — homepage and category</li>
+          <li>Swap and Save — competitor conquesting at cart-add moment</li>
+          <li>Atom analytics — pincode-level demand heatmaps (Rs. 30,000/month or 0.5% of prior month GMV, whichever is higher)</li>
+        </ul>
+        <div class="platform-stat">Entry: <strong>Rs. 5 to 6L</strong> bundled (reported; not publicly confirmed by Zepto) · Jarvis provides AI bid recommendations · 1,000+ dark stores · strongest analytics offering of all six platforms</div>
+      </div>
+      <div class="platform-card fade">
+        <div class="platform-name">Swiggy Instamart</div>
+        <span class="platform-tag">Food-adjacent, cross-sell advantage</span>
+        <ul class="format-list">
+          <li>Keyword Ads — sponsored search listings</li>
+          <li>Display Ads — homepage and category banners</li>
+          <li>Browse Boost and Go-To-Items — category discovery</li>
+          <li>Last-Minute Add-Ons — checkout placement (unique format)</li>
+          <li>Push Notifications — limited promotional use</li>
+        </ul>
+        <div class="platform-stat">Quarterly package: <strong>Rs. 8 to 10L</strong> (reported; not publicly confirmed) · 30%+ users cross Swiggy services · 1,136 dark stores across 127 cities as of Q3 FY26 · Instamart strategy is now "bigger stores, not more stores" — mega dark stores of 8,000 to 10,000 sq ft vs standard 4,000</div>
+      </div>
+      <div class="platform-card fade">
+        <div class="platform-name">JioMart</div>
+        <span class="platform-tag">Tier 2/3 reach via Reliance</span>
+        <ul class="format-list">
+          <li>Digital Commerce Platform Ads — search and display</li>
+          <li>QR-Based In-Store Discovery (pilot) — physical to digital bridge at Reliance Retail stores</li>
+        </ul>
+        <div class="platform-stat">Unique strength: <strong>5,000 pincodes</strong> including tier 2/3 · 800+ dark stores · QR pilot bridges offline familiarity with online conversion — no other platform does this</div>
+      </div>
+      <div class="platform-card fade">
+        <div class="platform-name">Amazon Now</div>
+        <span class="platform-tag">New entrant · DSP-backed · 3 cities so far</span>
+        <ul class="format-list">
+          <li>Sponsored listings in search results within the Now experience</li>
+          <li>Time-of-day campaign alignment — morning dairy runs, evening snack peaks, tied to actual demand signals</li>
+          <li>DSP integration — programmatic reach extends beyond the app across Amazon properties and third-party inventory</li>
+          <li>Full-funnel play — Prime Video for awareness, Now for the conversion; same advertiser, one ecosystem</li>
+        </ul>
+        <div class="platform-stat">City rollout: <strong>Bengaluru Dec 2024 → Delhi mid-2025 → Mumbai Sept 2025</strong> · Prime members tripled shopping frequency after trying Now · India ad revenue Rs 8,370 crore FY25 · QC click-to-conversion at 30%, their own marketplace runs at 10% — that gap is what makes this interesting</div>
+      </div>
+      <div class="platform-card fade">
+        <div class="platform-name">BB Now (BigBasket)</div>
+        <span class="platform-tag">Tata ecosystem · Fully pivoted to QC in 2025</span>
+        <ul class="format-list">
+          <li>Managed brand integrations — everything is negotiated directly, no self-serve option exists</li>
+          <li>Tata ecosystem co-promotions — Tanishq during Akshaya Tritiya, iPhone via Croma on launch day, Tata Starbucks on the app since June 2025</li>
+          <li>Sponsored product placements for partner brands within the app</li>
+          <li>Creator campaigns — Kusha Kapila, Gaurav Kapoor, Danish Sait as brand activation partners</li>
+        </ul>
+        <div class="platform-stat">Dark stores: <strong>800+ opened through 2025</strong> · 35+ cities · 20,000 to 25,000 items in 10 to 15 min · Private labels (BB Royal, Fresho) at 37-38% of revenue — growing faster than overall business · No self-serve ad platform; all brand deals negotiated directly. That 37-38% private label share is worth noting: BB Now has structural incentive to promote own brands over advertiser brands</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="label">Comparison</span>
+    <h2 class="section-title">Side by side</h2>
+    <div style="overflow-x:auto;" class="fade">
+      <table class="comp-table">
+        <thead>
+          <tr><th>Dimension</th><th>Blinkit</th><th>Zepto</th><th>Swiggy Instamart</th><th>JioMart</th><th>Amazon Now</th><th>BB Now</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Self-serve platform</td><td class="hi">Yes (Brand Central)</td><td class="hi">Yes (Jarvis)</td><td>Partial</td><td>No</td><td>Partial (via Amazon Ads)</td><td>No</td></tr>
+          <tr><td>Sponsored search</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="hi">Yes</td><td>Yes</td><td class="hi">Yes</td><td>Yes</td></tr>
+          <tr><td>Competitor conquesting</td><td>No</td><td class="hi">Yes (Swap and Save)</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Brand stores</td><td class="hi">Yes</td><td>No</td><td>No</td><td>No</td><td class="hi">Yes (Amazon Ads)</td><td>No</td></tr>
+          <tr><td>Checkout placement</td><td>No</td><td>No</td><td class="hi">Yes (Last-Minute Add-Ons)</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Pincode-level analytics</td><td>Partial</td><td class="hi">Yes (Atom)</td><td>No</td><td>No</td><td class="hi">Yes (AMC)</td><td>No</td></tr>
+          <tr><td>Entry cost</td><td>Rs. 25K/SKU (refundable)</td><td>Rs. 5 to 6L bundle</td><td>Rs. 8 to 10L/quarter</td><td>Not public</td><td>Via Amazon Ads account</td><td>Managed only</td></tr>
+          <tr><td>Dark store count</td><td class="hi">~1,800 (late 2025)</td><td>1,000+</td><td>1,136 (Q3 FY26)</td><td>800+</td><td>Expanding (3 cities)</td><td class="hi">800+ (35 cities)</td></tr>
+          <tr><td>Unique advantage</td><td>Urban density, ROAS tracking</td><td>AI bidding, conquesting</td><td>Cross-sell, checkout</td><td>Tier 2/3, offline bridge</td><td class="hi">DSP + first-party data + full-funnel</td><td>Tata brand ecosystem access</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <span class="label">Performance mechanics</span>
+    <h2 class="section-title">Why most QC campaigns underperform</h2>
+    <p style="font-size:0.92rem;color:var(--ink-light);line-height:1.85;margin-bottom:1.5rem;">The most common failure pattern I have seen: a brand runs QC advertising the same way they run Google or Meta — national targeting, standard creative, same KPIs. Then they wonder why the numbers are bad. QC is hyperlocal in a way those platforms are not. A campaign that works in Koramangala can lose money in Malad if the dark store network is different or product velocity does not support the bid. You cannot abstract away the geography here the way you can on other platforms.</p>
+    <div class="two-col fade">
+      <div class="col-box">
+        <div class="col-box-label" style="color:var(--green);">What actually works</div>
+        <ul class="check-list">
+          <li><span style="color:var(--green);">✓</span>Stock availability at dark store level — ads only show when in stock at that pincode</li>
+          <li><span style="color:var(--green);">✓</span>City-first, zone-level campaign structure rather than national blanket bids</li>
+          <li><span style="color:var(--green);">✓</span>Time-band bidding — morning for dairy and breakfast, evening for snacks and beverages</li>
+          <li><span style="color:var(--green);">✓</span>Local creative — city-specific copy consistently outperforms national messaging</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <div class="col-box-label" style="color:#A32D2D;">What quietly destroys your numbers</div>
+        <ul class="check-list">
+          <li><span style="color:#A32D2D;">✗</span>Running ads on out-of-stock SKUs — most common and costly mistake on QC platforms</li>
+          <li><span style="color:#A32D2D;">✗</span>National campaigns ignoring pincode-level stock and demand variation</li>
+          <li><span style="color:#A32D2D;">✗</span>Scaling cities before achieving 90%+ availability in the home city</li>
+          <li><span style="color:#A32D2D;">✗</span>Copy-pasting campaigns across platforms without adapting to format mechanics</li>
+        </ul>
+      </div>
+    </div>
+    <div class="insight fade">
+      <div class="insight-label">PM observation</div>
+      <p>Every brand I have spoken to about QC ads has the same story eventually: campaign ran, product went OOS at some stores, ROAS fell off a cliff, nobody flagged it until the weekly report came out. Auto-pause on OOS, auto-resume on restock. It sounds like a two-day engineering sprint. It is not — the real-time dark-store-level signals are hard to get and harder to wire into bidding logic. But the advertiser who has been burned by this problem will pay a premium for the platform that solves it. Format features are secondary to this.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="label">Gap analysis</span>
+    <h2 class="section-title">Six gaps, in order of how interesting I find them</h2>
+    <div class="insight fade" style="margin-bottom:2rem;">
+      <div class="insight-label">Something most teardowns miss</div>
+      <p>In September 2025, Blinkit quietly moved to a first-party inventory model — it now buys and owns the stock, not the brands. By Q3 FY26, about 90% of its Net Order Value runs through Blinkit's own inventory. Most people writing about QC ads have not caught up to what this means. Brands used to pay for visibility on their own listed products. Now they are paying for visibility on inventory Blinkit controls. That is a different negotiation. The auction mechanics, ROAS attribution, and who actually owns the relationship with the buyer — all of it shifts. I genuinely do not know how this plays out for brand advertisers long-term, but it is the thing I would be most focused on if I were building the ad product.</p>
+    </div>
+    <div class="insight fade" style="margin-bottom:2rem;">
+      <div class="insight-label">On Swiggy Instamart's strategy shift</div>
+      <p>Blinkit added 272 dark stores in a single quarter. In the same period, Swiggy added 40. Their CFO's response to analysts was essentially: we can double Instamart revenue without adding more stores by making the existing ones bigger — 8,000 to 10,000 sq ft mega dark stores instead of the standard 4,000. I find this genuinely interesting from an ad product perspective. Bigger stores mean more SKU depth, which means more placement inventory, which means more auction competition and probably better CPC floors. Whether the ad product team is actually designing around this, I have no idea. But it seems like the kind of structural change that should be driving ad product decisions, not trailing them.</p>
+    </div>
+    <div class="opp-grid">
+      <div class="opp-card fade">
+        <span class="opp-num">01</span>
+        <div class="opp-title">Inventory-bid coupling — nobody has actually solved it</div>
+        <p class="opp-desc">Brands managing hundreds of SKUs across thousands of pincodes are doing this manually. Spreadsheets, account manager calls, post-hoc ROAS analysis. The data infrastructure to fix it is hard but the brands paying for the problem are also willing to pay for the solution.</p>
+      </div>
+      <div class="opp-card fade">
+        <span class="opp-num">02</span>
+        <div class="opp-title">Nobody is monetising the cart page properly</div>
+        <p class="opp-desc">Instamart has Last-Minute Add-Ons at checkout. Everyone else has nothing. Cart pages have the highest purchase intent of any screen in the app — the user has already decided to buy, they are just deciding what else to add. That is the easiest conversion in advertising and five out of six platforms are leaving it empty.</p>
+      </div>
+      <div class="opp-card fade">
+        <span class="opp-num">03</span>
+        <div class="opp-title">Three dashboards, no unified view</div>
+        <p class="opp-desc">Right now a brand advertising across Blinkit, Zepto, and Instamart exports three separate reports, reconciles them manually, and still does not have a clean QC ROAS number. The platform that solves this does not have to be any of the three incumbents. It just needs the data integrations and enough advertiser trust to become the system of record.</p>
+      </div>
+      <div class="opp-card fade">
+        <span class="opp-num">04</span>
+        <div class="opp-title">Brand stores — only Blinkit bothered</div>
+        <p class="opp-desc">Five platforms, one brand store product. Blinkit built it; nobody else did. For personal care, snacks, or any brand with a real portfolio, showing your whole range converts better than a single sponsored listing. The other platforms are essentially forcing advertisers into one-product placements when their buyers want to browse.</p>
+      </div>
+      <div class="opp-card fade">
+        <span class="opp-num">05</span>
+        <div class="opp-title">Rs. 5 to 10L a quarter is a big door to close</div>
+        <p class="opp-desc">The brands that would get the most from QC's hyperlocal targeting — small D2C companies, regional FMCG players, local brands with strong city-specific demand — are exactly the ones priced out by bundled entry minimums. A performance-based self-serve tier would open a completely different advertiser segment. Nobody has gone there yet.</p>
+      </div>
+      <div class="opp-card fade">
+        <span class="opp-num">06</span>
+        <div class="opp-title">QC advertising is still pre-programmatic</div>
+        <p class="opp-desc">Most campaigns here are still managed by account teams, paced manually, with reports that come out days after the fact. Real-time bidding, proper auction mechanics, clean measurement APIs — none of it exists at the category level yet. Amazon Now is the only entrant with DSP infrastructure already in place, which is either a significant advantage or a square peg in a round hole depending on how different QC ad inventory actually is from standard display.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pm-lens">
+  <div class="container">
+    <span class="label" style="color:rgba(255,255,255,0.45);">Product thinking</span>
+    <h2 class="section-title" style="color:var(--white);">How I think about building in this space</h2>
+    <div class="lens-grid">
+      <div class="lens-item fade">
+        <div class="lens-q">Where would I start?</div>
+        <div class="lens-a">Sponsored search. Not because it is the most interesting format — it is not — but because it is the one advertisers already know how to evaluate. Get them to a positive ROAS fast, build trust, then introduce formats they have never bought before.</div>
+      </div>
+      <div class="lens-item fade">
+        <div class="lens-q">What is the hardest product problem?</div>
+        <div class="lens-a">Getting inventory signals into the ad serving layer in real time. It sounds like a data engineering problem but it is actually a trust problem. If advertisers cannot rely on the platform to stop charging them when their product is OOS, they will pull spend. I have seen this happen. It is hard to recover from.</div>
+      </div>
+      <div class="lens-item fade">
+        <div class="lens-q">How do I validate before building?</div>
+        <div class="lens-a">I would mock up the advertiser dashboard and put it in front of 3 to 5 real brand managers before engineering touches it. Not a survey — an actual working prototype with fake data. You find out very quickly what people actually look at versus what they say they want.</div>
+      </div>
+      <div class="lens-item fade">
+        <div class="lens-q">What is the right success metric?</div>
+        <div class="lens-a">90-day advertiser retention. Ad revenue is a lagging indicator — by the time it drops, you have already lost the relationship. If advertisers are not coming back after their first campaign, something is broken in the ROAS story or the reporting or both.</div>
+      </div>
+      <div class="lens-item fade">
+        <div class="lens-q">How do I balance monetisation with experience?</div>
+        <div class="lens-a">I track ad-to-cart rate as a health metric alongside revenue. If that number drops while ad revenue goes up, you are borrowing against the user experience. At some point users start ignoring placements, then the whole unit economics of the ad product falls apart. Better to catch it at 5% degradation than 30%.</div>
+      </div>
+      <div class="lens-item fade">
+        <div class="lens-q">What would I build in year two?</div>
+        <div class="lens-a">A proper self-serve tier. The regional and D2C brands that are perfect for QC's hyperlocal model cannot afford Rs. 5L entry minimums. Lower the floor, automate the optimisation, and you tap a market that the current managed-service model structurally cannot reach. That is where I would put year-two engineering investment.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <span class="label">About</span>
+    <h2 class="section-title" style="margin-bottom:1rem;">About the author</h2>
+    <p style="font-size:0.9rem;color:var(--ink-light);line-height:1.8;max-width:520px;margin:0 auto 2rem;">I am Deven Shah. I head Product at Voiro, an AdTech SaaS platform working across India and MENA. I wrote this because I was applying my own PM lens to the QC ad space and could not find a single analysis that felt genuinely useful rather than just comprehensive. This is my attempt at that. If something is wrong or has changed, I genuinely want to know — reach out.</p>
+    <a href="https://devenshah.in" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.4rem;background:var(--accent);color:var(--cream);border-radius:100px;text-decoration:none;font-size:0.83rem;font-weight:500;">View full portfolio →</a>
+  </div>
+</section>
+
+<footer>Built by Deven Shah</footer>
+
+<script>
+let n = 0;
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), n++ * 60);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
