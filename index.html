@@ -200,8 +200,9 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
 @media (max-width: 700px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-photo-wrap { display: none; }
+  .hero-inner { grid-template-columns: 1fr auto; gap: 1.25rem; align-items: center; }
+  .hero-photo-wrap { padding-top: 0; }
+  .hero-photo { width: 72px; height: 72px; }
   .hero-name { font-size: 2rem; }
   .stats-inner { flex-wrap: wrap; }
   .stat-item { min-width: 50%; border-right: none !important; border-bottom: 1px solid var(--border); }
@@ -268,7 +269,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
         I've been on three sides of the ad ecosystem — publisher networks at Media.net, premium OTT at Disney+ Hotstar, and now the platform layer at Voiro.
       </p>
       <div class="hero-actions">
-        <a href="mailto:devenshah4172@gmail.com" class="btn btn-primary">Let's talk →</a>
+        <a href="/cdn-cgi/l/email-protection#d7b3b2a1b2b9a4bfb6bfe3e6e0e597b0bab6bebbf9b4b8ba" class="btn btn-primary">Let's talk →</a>
         <a href="Deven_Shah_CV.pdf" download class="btn btn-ghost">Download CV</a>
         <a href="https://linkedin.com/in/deven-shah-635210145/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
       </div>
@@ -642,8 +643,8 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
       <h2 class="contact-heading">Let's talk.</h2>
       <p class="contact-sub">Open to Head of Product or Senior PM roles at companies serious about AdTech, retail media, or AI-powered monetisation. Based in Mumbai and Bangalore, open to hybrid.</p>
       <div class="contact-links">
-        <a href="mailto:devenshah4172@gmail.com" class="contact-link">
-          <div class="contact-icon">✉</div>devenshah4172@gmail.com
+        <a href="/cdn-cgi/l/email-protection#583c3d2e3d362b3039306c696f6a183f35393134763b3735" class="contact-link">
+          <div class="contact-icon">✉</div><span class="__cf_email__" data-cfemail="0b6f6e7d6e6578636a633f3a3c394b6c666a626725686466">[email&#160;protected]</span>
         </a>
         <a href="https://linkedin.com/in/deven-shah-635210145/" target="_blank" rel="noopener noreferrer" class="contact-link">
           <div class="contact-icon" style="font-size:0.68rem;font-weight:600;">in</div>deven-shah-635210145
@@ -665,7 +666,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
 
 <footer>Built by Deven Shah</footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
 function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
@@ -679,15 +680,4 @@ function toggleCS(header) {
 }
 
 let n = 0;
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('in'), n++ * 70);
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.06 });
-document.querySelectorAll('.fade').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>
+const obs = new IntersectionObs
