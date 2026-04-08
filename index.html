@@ -99,8 +99,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .cs-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.3rem; display: block; }
 .cs-title { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); line-height: 1.35; margin-bottom: 0.3rem; }
 .cs-sub { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; }
-.cs-toggle { flex-shrink: 0; margin-top: 0.25rem; width: 24px; height: 24px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--ink-muted); transition: all 0.2s; }
-.cs-toggle.open { border-color: var(--accent); color: var(--accent); transform: rotate(180deg); }
+.cs-toggle { flex-shrink: 0; margin-top: 0.15rem; width: 24px; height: 24px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--ink-muted); transition: all 0.2s; }
+.cs-toggle.open { border-color: var(--accent); color: var(--accent); transform: rotate(45deg); }
 .cs-body { display: none; border-top: 1px solid var(--border-light); }
 .cs-body.open { display: block; }
 .cs-grid { display: grid; grid-template-columns: repeat(3,1fr); }
@@ -193,16 +193,15 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: var(--ink-muted); background: var(--cream-dark); border-top: 1px solid var(--border); }
 
 /* FADE */
-.js-ready .fade { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; pointer-events: none; }
-.js-ready .fade.in { opacity: 1; transform: none; pointer-events: auto; }
+.fade { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade.in { opacity: 1; transform: none; }
 
 /* RESPONSIVE */
 @media (max-width: 700px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  .hero-inner { grid-template-columns: 1fr auto; gap: 1.25rem; align-items: center; }
-  .hero-photo-wrap { padding-top: 0; }
-  .hero-photo { width: 72px; height: 72px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo-wrap { display: none; }
   .hero-name { font-size: 2rem; }
   .stats-inner { flex-wrap: wrap; }
   .stat-item { min-width: 50%; border-right: none !important; border-bottom: 1px solid var(--border); }
@@ -269,7 +268,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
         I've been on three sides of the ad ecosystem — publisher networks at Media.net, premium OTT at Disney+ Hotstar, and now the platform layer at Voiro.
       </p>
       <div class="hero-actions">
-        <a href="/cdn-cgi/l/email-protection#d7b3b2a1b2b9a4bfb6bfe3e6e0e597b0bab6bebbf9b4b8ba" class="btn btn-primary">Let's talk →</a>
+        <a href="mailto:devenshah4172@gmail.com" class="btn btn-primary">Let's talk →</a>
         <a href="Deven_Shah_CV.pdf" download class="btn btn-ghost">Download CV</a>
         <a href="https://linkedin.com/in/deven-shah-635210145/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
       </div>
@@ -310,7 +309,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
     <span class="section-eyebrow">Selected work</span>
     <h2 class="section-title">Case studies</h2>
 
-    <div class="cs">
+    <div class="cs fade">
       <div class="cs-header" onclick="toggleCS(this)">
         <span class="cs-num">01</span>
         <div class="cs-meta">
@@ -318,7 +317,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
           <div class="cs-title">Scaling a Revenue Platform When Everything Was on Fire</div>
           <div class="cs-sub">Enterprise onboarding, broken workflows, revenue that wouldn't reconcile. Fixed it while the train was moving.</div>
         </div>
-        <div class="cs-toggle open"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3L5 7L9 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="cs-toggle open">+</div>
       </div>
       <div class="cs-body open">
         <div class="cs-grid">
@@ -353,7 +352,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
       </div>
     </div>
 
-    <div class="cs">
+    <div class="cs fade">
       <div class="cs-header" onclick="toggleCS(this)">
         <span class="cs-num">02</span>
         <div class="cs-meta">
@@ -361,7 +360,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
           <div class="cs-title">Making Missed Revenue Visible Before It Walks Out the Door</div>
           <div class="cs-sub">Advertisers were churning and the sales team only found out weeks later. I built the product that caught it in real time.</div>
         </div>
-        <div class="cs-toggle"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3L5 7L9 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="cs-toggle">+</div>
       </div>
       <div class="cs-body">
         <div class="cs-grid">
@@ -396,7 +395,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
       </div>
     </div>
 
-    <div class="cs">
+    <div class="cs fade">
       <div class="cs-header" onclick="toggleCS(this)">
         <span class="cs-num">03</span>
         <div class="cs-meta">
@@ -404,7 +403,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
           <div class="cs-title">Building a Self-Serve Media Buying Platform From Zero</div>
           <div class="cs-sub">Publishers managing direct deals over email and spreadsheets. I took Brand Center from a blank doc to a closed beta with 5 major publishers.</div>
         </div>
-        <div class="cs-toggle"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3L5 7L9 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="cs-toggle">+</div>
       </div>
       <div class="cs-body">
         <div class="cs-grid">
@@ -643,8 +642,8 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
       <h2 class="contact-heading">Let's talk.</h2>
       <p class="contact-sub">Open to Head of Product or Senior PM roles at companies serious about AdTech, retail media, or AI-powered monetisation. Based in Mumbai and Bangalore, open to hybrid.</p>
       <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#583c3d2e3d362b3039306c696f6a183f35393134763b3735" class="contact-link">
-          <div class="contact-icon">✉</div><span class="__cf_email__" data-cfemail="0b6f6e7d6e6578636a633f3a3c394b6c666a626725686466">[email&#160;protected]</span>
+        <a href="mailto:devenshah4172@gmail.com" class="contact-link">
+          <div class="contact-icon">✉</div>devenshah4172@gmail.com
         </a>
         <a href="https://linkedin.com/in/deven-shah-635210145/" target="_blank" rel="noopener noreferrer" class="contact-link">
           <div class="contact-icon" style="font-size:0.68rem;font-weight:600;">in</div>deven-shah-635210145
@@ -666,7 +665,7 @@ footer { text-align: center; padding: 1.25rem 2rem; font-size: 0.73rem; color: v
 
 <footer>Built by Deven Shah</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
 function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
@@ -680,4 +679,15 @@ function toggleCS(header) {
 }
 
 let n = 0;
-const obs = new IntersectionObs
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), n++ * 70);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
