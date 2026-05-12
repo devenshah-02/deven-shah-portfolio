@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Deven Shah — Product Manager</title>
-<meta name="description" content="PM leading product at Voiro. Nine years in AdTech, last two focused entirely on AI products."/>
+<meta name="description" content="PM leading product at Voiro. Nine years in AdTech, last five in PM. Building AI products applied to AdTech across India and MENA."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -168,24 +168,59 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 .fade.in{opacity:1;transform:none}
 
 @media(max-width:680px){
+  /* NAV */
   .nr{display:none}.hbg{display:flex}
-  #hero,#conversation,#contact{padding-left:1.5rem;padding-right:1.5rem}
-  .sec{padding:3rem 1.5rem}
   nav{padding:0 1.5rem}
-  .hero-body{grid-template-columns:1fr}
+
+  /* HERO */
+  #hero{padding-left:1.5rem;padding-right:1.5rem}
+  .hero-body{grid-template-columns:1fr;padding-bottom:2rem}
+  .hero-arc{display:none}
   h1.hero-name{font-size:3.8rem}
+
+  /* SECTIONS */
+  .sec{padding:2rem 1.5rem}
+  #conversation{padding:2rem 1.5rem}
+  #contact{padding:3rem 1.5rem}
+
+  /* ORIGIN — hide long paragraphs, keep company + title */
+  .origin-text{display:none}
+  .origin-item{padding:1rem 0}
+
+  /* WORK */
+  .work-sub{display:none}
+  .work-body{padding:0 0 1.25rem 0}
   .work-body.open{grid-template-columns:1fr}
+
+  /* THINKING — hide descriptions, show titles only */
+  .ti-desc{display:none}
+  .ti-tag{display:none}
+  .ti{padding:.9rem 0}
+
+  /* OUTSIDE — switch italic serif to body font, full width */
   .outside-prose{grid-template-columns:1fr}
   .op:nth-child(even){padding-left:0;border-left:none}
   .op:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
   .op:last-child{border-bottom:none}
+  .op-text{font-family:var(--body);font-style:normal;font-size:.82rem}
+
+  /* JOURNEY */
+  .tl-desc{font-size:.84rem}
+
+  /* PROJECTS — stack url below desc */
+  .proj-item{grid-template-columns:1fr;gap:.4rem}
+  .proj-url{padding-top:0}
+
+  /* CONVERSATION */
   .conv-cards{grid-template-columns:1fr}
+
+  /* CONTACT */
   .contact-inner{grid-template-columns:1fr;gap:2.5rem}
-  #contact{padding-top:3.5rem;padding-bottom:3.5rem}
+  .open-text{display:none}
 }
 @media(max-width:420px){
   h1.hero-name{font-size:3.2rem}
-  .hero-photo{width:68px;height:84px}
+  .hero-photo{display:none}
 }
 </style>
 </head>
@@ -226,7 +261,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
     <div>
       <p class="hero-role">Leading Product at Voiro</p>
       <p class="hero-intro">Nine years in AdTech, last five as a PM. I drive product strategy and roadmap with the leadership team across campaign management, yield optimisation, OMS, and AI-powered revenue intelligence for publishers and retailers across India and MENA.</p>
-      <p class="hero-thesis">For the last two years my focus has been entirely on AI products. At Voiro I built and shipped Genie, a conversational data analyst for enterprise clients, live in production, built on RAG-based architecture. I also ship AI tools independently using the Claude API, from hypothesis to GitHub to Vercel. What I've learned building these is that the hard part isn't the AI. It's making it trustworthy enough for enterprise users to actually rely on it every day. That's the problem I want to keep working on.</p>
+      <p class="hero-thesis">For the last two years my focus has been AI products, specifically applied to AdTech. At Voiro I built and shipped Genie, a conversational data analyst built on RAG, live in production with enterprise clients. I also independently ship AI tools using the Claude API, from hypothesis to GitHub to Vercel. The hard part isn't the AI. It's making it trustworthy enough that people actually rely on it.</p>
     </div>
     <div class="hero-right">
       <p class="hero-arc">Product ops at Media.net, where I learned how ad serving breaks before I learned how it works. Revenue desk at Disney+ Hotstar during IPL, with ten people waiting on the number you're building. Now at Voiro, setting strategy and shipping across both India and MENA.</p>
@@ -419,7 +454,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
       <span class="ti-n">01</span>
       <div>
         <div class="ti-title">I test in production before I spec</div>
-        <div class="ti-desc">When I'm testing a hypothesis, I write code with Claude Code, push to GitHub, and deploy on Vercel. Sometimes in an afternoon. If the idea holds, I build a proper prototype in Lovable, then move to Figma for engineering handoff. The spec should describe something that's already been proven to work, not something we hope will.</div>
+        <div class="ti-desc">When testing a hypothesis, I write code and deploy on Vercel — sometimes in an afternoon. For UI-heavy ideas, Lovable gets me a working prototype faster than Figma would. Either way, I collect feedback before engineering touches it. The spec describes something already proven, not something we hope will work.</div>
         <span class="ti-tag">Claude Code · GitHub · Vercel · Lovable · Figma</span>
       </div>
     </div>
@@ -427,7 +462,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
       <span class="ti-n">02</span>
       <div>
         <div class="ti-title">The hard part of AI products isn't the AI</div>
-        <div class="ti-desc">Getting an LLM to produce a good answer in a demo is easy. Getting enterprise users to trust it enough to act on it every day is the real product problem. Hallucination guardrails, explainability, fallback states when confidence is low. Most AI product failures I've seen aren't model failures. They're trust failures.</div>
+        <div class="ti-desc">Getting an LLM to produce a good demo answer is easy. Getting enterprise users to trust it enough to act on it daily is the actual product problem. Most AI failures I've seen aren't model failures. They're trust failures.</div>
       </div>
     </div>
     <div class="ti">
@@ -441,7 +476,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
       <span class="ti-n">04</span>
       <div>
         <div class="ti-title">Scope cuts are product decisions, not project management</div>
-        <div class="ti-desc">The hardest call in a 0-to-1 build isn't what to include. It's what to deliberately leave out and defend that to stakeholders who want everything. Getting it wrong costs two sprints. I've made the mistake. I've also gotten it right.</div>
+        <div class="ti-desc">The hardest call in a 0-to-1 build isn't what to include. It's what to leave out and defend that to stakeholders who want everything. I've gotten it wrong. I've also gotten it right.</div>
       </div>
     </div>
   </div>
