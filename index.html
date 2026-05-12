@@ -59,11 +59,12 @@ h1.hero-name em{font-style:italic;color:var(--red)}
 .btn-line:hover{border-color:var(--ink3);color:var(--ink)}
 
 /* SHARED */
-.sec{padding:4rem 2.5rem;max-width:calc(var(--max) + 5rem);margin:0 auto}
-.sec-head{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;border-bottom:1px solid var(--rule);padding-bottom:.75rem}
-.sec-num{font-family:var(--mono);font-size:.68rem;color:var(--ink3);font-weight:400}
+.sec{padding:4rem 2.5rem;max-width:calc(var(--max) + 5rem);margin:0 auto;border-top:1px solid var(--rule)}
+.sec:first-of-type{border-top:none}
+.sec-head{margin-bottom:2.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--rule)}
+.sec-label{font-family:var(--mono);font-size:.62rem;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.35rem;font-weight:400}
 .sec-title{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);letter-spacing:-.01em}
-hr.div{border:none;border-top:1px solid var(--rule)}
+hr.div{display:none}
 
 /* ORIGIN */
 .origin-items{display:flex;flex-direction:column}
@@ -132,7 +133,7 @@ hr.div{border:none;border-top:1px solid var(--rule)}
 .proj-url{font-family:var(--mono);font-size:.62rem;color:var(--ink3);flex-shrink:0;padding-top:.3rem;white-space:nowrap}
 
 /* IN CONVERSATION */
-#conversation{padding:4rem 2.5rem;max-width:calc(var(--max) + 5rem);margin:0 auto}
+#conversation{padding:4rem 2.5rem;max-width:calc(var(--max) + 5rem);margin:0 auto;border-top:1px solid var(--rule)}
 .conv-head{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;border-bottom:1px solid var(--rule);padding-bottom:.75rem}
 .conv-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 .conv-card{text-decoration:none;display:block;transition:opacity .15s}
@@ -169,59 +170,68 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 
 @media(max-width:680px){
   /* NAV */
-  .nr{display:none}.hbg{display:flex}
-  nav{padding:0 1.5rem}
+  .nr{display:none}
+  .hbg{display:flex}
+  nav{padding:0 1.25rem}
 
-  /* HERO */
-  #hero{padding-left:1.5rem;padding-right:1.5rem}
+  /* UNIVERSAL SECTION PADDING — every section identical */
+  #hero{padding:88px 1.25rem 0}
+  .sec{padding:2.5rem 1.25rem}
+  #conversation{padding:2.5rem 1.25rem}
+  #contact{padding:2.5rem 1.25rem}
+
+  /* HERO — stack cleanly, keep photo */
+  .hero-top{align-items:center}
+  h1.hero-name{font-size:3.2rem}
+  .hero-photo{width:72px;height:90px}
+  .hero-rule{margin:1.5rem 0}
   .hero-body{grid-template-columns:1fr;padding-bottom:2rem}
   .hero-arc{display:none}
-  h1.hero-name{font-size:3.8rem}
+  .hero-intro{font-size:.95rem}
+  .hero-thesis{font-size:.82rem}
+  .hero-btns{margin-top:1.25rem}
 
-  /* SECTIONS */
-  .sec{padding:2rem 1.5rem}
-  #conversation{padding:2rem 1.5rem}
-  #contact{padding:3rem 1.5rem}
-
-  /* ORIGIN — hide long paragraphs, keep company + title */
-  .origin-text{display:none}
-  .origin-item{padding:1rem 0}
+  /* ORIGIN — date becomes inline, not a column */
+  .origin-item{grid-template-columns:1fr;gap:.5rem;padding:1.25rem 0}
+  .origin-when{display:inline;font-size:.6rem;margin-right:.5rem}
+  .origin-when br{display:none}
 
   /* WORK */
-  .work-sub{display:none}
+  .work-hd{padding:1rem 0}
+  .work-sub{font-size:.76rem}
   .work-body{padding:0 0 1.25rem 0}
-  .work-body.open{grid-template-columns:1fr}
+  .work-body.open{grid-template-columns:1fr;gap:1.25rem}
+  .wc-lbl{margin-bottom:.4rem}
 
-  /* THINKING — hide descriptions, show titles only */
-  .ti-desc{display:none}
-  .ti-tag{display:none}
-  .ti{padding:.9rem 0}
+  /* THINKING — keep descriptions, uniform with other sections */
+  .ti{padding:1rem 0}
+  .ti-desc{font-size:.78rem}
 
-  /* OUTSIDE — switch italic serif to body font, full width */
-  .outside-prose{grid-template-columns:1fr}
-  .op:nth-child(even){padding-left:0;border-left:none}
-  .op:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
-  .op:last-child{border-bottom:none}
-  .op-text{font-family:var(--body);font-style:normal;font-size:.82rem}
+  /* OUTSIDE — keep 2-col, tighten padding */
+  .op{padding:1rem 1rem 1rem 0}
+  .op:nth-child(even){padding-left:1rem;padding-right:0}
+  .op-text{font-family:var(--body);font-style:normal;font-size:.8rem;line-height:1.6}
 
   /* JOURNEY */
-  .tl-desc{font-size:.84rem}
+  .tl{padding-left:1rem}
+  .tl-item{padding:0 0 1.5rem 1rem}
+  .tl-dot{left:-1.075rem}
+  .tl-desc{font-size:.8rem;max-width:100%}
 
-  /* PROJECTS — stack url below desc */
-  .proj-item{grid-template-columns:1fr;gap:.4rem}
+  /* PROJECTS */
+  .proj-item{grid-template-columns:1fr;gap:.35rem}
   .proj-url{padding-top:0}
 
   /* CONVERSATION */
-  .conv-cards{grid-template-columns:1fr}
+  .conv-cards{grid-template-columns:1fr;gap:2rem}
+  .conv-sub{font-size:.76rem}
 
   /* CONTACT */
-  .contact-inner{grid-template-columns:1fr;gap:2.5rem}
+  .contact-inner{grid-template-columns:1fr;gap:2rem}
   .open-text{display:none}
+  .c-big{font-size:2rem}
 }
-@media(max-width:420px){
-  h1.hero-name{font-size:3.2rem}
-  .hero-photo{display:none}
-}
+
 </style>
 </head>
 <body>
@@ -277,7 +287,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 <!-- ORIGIN -->
 <section class="sec fade" id="origin">
   <div class="sec-head">
-    <span class="sec-num">00</span>
+    <span class="sec-label">Background</span>
     <h2 class="sec-title">Where it started</h2>
   </div>
   <div class="origin-items">
@@ -313,7 +323,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 <!-- WORK -->
 <section class="sec fade" id="work">
   <div class="sec-head">
-    <span class="sec-num">01</span>
+    <span class="sec-label">Case studies</span>
     <h2 class="sec-title">Selected work</h2>
   </div>
 
@@ -446,7 +456,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 <!-- THINKING -->
 <section class="sec fade" id="thinking">
   <div class="sec-head">
-    <span class="sec-num">02</span>
+    <span class="sec-label">Product thinking</span>
     <h2 class="sec-title">How I work</h2>
   </div>
   <div class="thinking-items">
@@ -487,7 +497,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 <!-- OUTSIDE -->
 <section class="sec fade">
   <div class="sec-head">
-    <span class="sec-num">03</span>
+    <span class="sec-label">Personal</span>
     <h2 class="sec-title">Outside work</h2>
   </div>
   <div class="outside-prose">
@@ -515,7 +525,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 <!-- JOURNEY -->
 <section class="sec fade" id="journey">
   <div class="sec-head">
-    <span class="sec-num">04</span>
+    <span class="sec-label">Experience</span>
     <h2 class="sec-title">The journey</h2>
   </div>
   <div class="tl">
@@ -555,7 +565,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 <!-- PROJECTS -->
 <section class="sec fade">
   <div class="sec-head">
-    <span class="sec-num">05</span>
+    <span class="sec-label">Live work</span>
     <h2 class="sec-title">Shipped independently</h2>
   </div>
   <div class="proj-items">
@@ -575,7 +585,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
 <!-- IN CONVERSATION -->
 <section id="conversation" class="fade">
   <div class="conv-head">
-    <span class="sec-num">06</span>
+    <span class="sec-label">Podcasts</span>
     <h2 class="sec-title">In Conversation</h2>
   </div>
   <div class="conv-cards">
@@ -627,7 +637,7 @@ footer{text-align:center;padding:.9rem 2rem;font-family:var(--mono);font-size:.6
     </div>
     <div>
       <span class="open-lbl">Open to</span>
-      <p class="open-text">Head of Product or Senior PM at a company doing something real in AdTech, retail media, or AI-powered monetisation. Interested in 0-to-1 builds and platform-layer products.</p>
+      <p class="open-text">Head of Product or Senior PM at a company doing something real in AdTech, retail media, or AI-powered monetisation. Interested in 0-to-1 builds and platform-layer products. Not interested in roles where product is a ticket-writing function between business and engineering.</p>
       <div class="open-tags">
         <span class="otag">AdTech</span>
         <span class="otag">Retail Media</span>
