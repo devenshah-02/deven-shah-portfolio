@@ -13,8 +13,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --cream: #FAF8F5; --cream-dark: #F0EDE8; --ink: #1C1C1E; --ink-light: #4A4A52;
-  --ink-muted: #8A8A96; --accent: #3D3935; --accent-light: #F0EDE8;
-  --border: #E4E0DA; --white: #FFFFFF; --green: #2a8a5e;
+  --ink-muted: #63636D; --accent: #3D3935; --accent-light: #F0EDE8;
+  --border: #E4E0DA; --white: #FFFFFF; --green: #1f6f4a;
   --serif: 'Playfair Display', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif;
 }
 html { scroll-behavior: smooth; }
@@ -67,7 +67,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .check-list li span { position: absolute; left: 0; font-size: 0.75rem; top: 0.36rem; }
 .opp-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
 .opp-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
-.opp-num { font-family: var(--serif); font-size: 1.4rem; color: #C8C4DC; font-weight: 400; display: block; margin-bottom: 0.4rem; line-height: 1; }
+.opp-num { font-family: var(--serif); font-size: 1.4rem; color: #7A7590; font-weight: 400; display: block; margin-bottom: 0.4rem; line-height: 1; }
 .opp-title { font-size: 0.85rem; font-weight: 500; color: var(--ink); margin-bottom: 0.35rem; }
 .opp-desc { font-size: 0.78rem; color: var(--ink-light); line-height: 1.65; }
 .pm-lens { background: var(--ink); padding: 3.5rem 0; }
@@ -83,6 +83,7 @@ footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--ink
   .comp-table { font-size: 0.72rem; }
   .comp-table th, .comp-table td { padding: 0.45rem 0.5rem; }
 }
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}.table-scroll .comp-table{margin:0;min-width:560px}
 </style>
 </head>
 <body>
@@ -204,7 +205,7 @@ footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--ink
     <span class="label">Comparison</span>
     <h2 class="section-title">Side by side</h2>
     <div style="overflow-x:auto;" class="fade">
-      <table class="comp-table">
+      <div class="table-scroll"><table class="comp-table">
         <thead>
           <tr><th>Dimension</th><th>Blinkit</th><th>Zepto</th><th>Swiggy Instamart</th><th>JioMart</th><th>Amazon Now</th><th>BB Now</th></tr>
         </thead>
@@ -219,7 +220,7 @@ footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--ink
           <tr><td>Dark store count</td><td class="hi">~1,800 (late 2025)</td><td>1,000+</td><td>1,136 (Q3 FY26)</td><td>800+</td><td>Expanding (3 cities)</td><td class="hi">800+ (35 cities)</td></tr>
           <tr><td>Unique advantage</td><td>Urban density, ROAS tracking</td><td>AI bidding, conquesting</td><td>Cross-sell, checkout</td><td>Tier 2/3, offline bridge</td><td class="hi">DSP + first-party data + full-funnel</td><td>Tata brand ecosystem access</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
   </div>
 </section>
