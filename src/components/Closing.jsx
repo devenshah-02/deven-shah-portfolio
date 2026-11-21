@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { awards, clients, closing, contactIntro, podcasts, sections, site, toolbox, writing } from '../data/content.js';
-import { useReducedMotion } from '../hooks.js';
+import { useMagnetic, useReducedMotion } from '../hooks.js';
 import { Arrow, Reveal, SectionHead } from './ui.jsx';
 
 export function Toolbox() {
@@ -90,18 +90,45 @@ export function Contact() {
   const [f, setF] = useState({ first: '', last: '', email: '', company: '', message: '' });
   const [err, setErr] = useState('');
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value });
+  const submitRef = useMagnetic(8);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     if (!f.first || !f.email || !f.message) { setErr('Add your first name, email and a message to send.'); return; }
     if (!/^\S+@\S+\.\S+$/.test(f.email)) { setErr('Enter an email like name@company.com.'); return; }
     setErr('');
-    // No backend: opens the visitor's mail client with the message pre-filled.
-    const subject = encodeURIComponent(`Hello from ${f.first} ${f.last}${f.company ? `, ${f.company}` : ''}`);
-    const body = encodeURIComponent(`${f.message}\n\n${f.first} ${f.last}\n${f.email}${f.company ? `\n${f.company}` : ''}`);
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+
+    if (!site.formEndpoint) {
+      // No form backend configured yet: fall back to opening the visitor's mail client.
+      const subject = encodeURIComponent(`Hello from ${f.first} ${f.last}${f.company ? `, ${f.company}` : ''}`);
+      const body = encodeURIComponent(`${f.message}\n\n${f.first} ${f.last}\n${f.email}${f.company ? `\n${f.company}` : ''}`);
+      window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+      setSent(true);
+      return;
+    }
+
+    setSending(true);
+    try {
+      const res = await fetch(site.formEndpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${f.first} ${f.last}`.trim(),
+          email: f.email,
+          company: f.company,
+          message: f.message,
+        }),
+      });
+      if (!res.ok) throw new Error('Form submission failed');
+      setSent(true);
+      setF({ first: '', last: '', email: '', company: '', message: '' });
+    } catch {
+      setErr('Could not send that. Please email me directly instead.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -126,9 +153,20 @@ export function Contact() {
           <label>Email<input type="email" value={f.email} onChange={set('email')} autoComplete="email" /></label>
           <label>Company<input value={f.company} onChange={set('company')} autoComplete="organization" /></label>
           <label>Message<textarea rows="5" value={f.message} onChange={set('message')} /></label>
-          {err && <p className="form-error" role="alert">{err}</p>}
-          {sent && !err && <p className="form-ok" role="status">Your mail app opened with the message ready to send.</p>}
-          <button className="btn btn-primary" type="submit">Send message</button>
+          {err && <p className="form-error is-shake" role="alert">{err}</p>}
+          {sent && !err && (
+            <p className="form-ok" role="status">
+              <svg className="form-ok-check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="currentColor" strokeWidth="1.6" />
+              </svg>
+              {site.formEndpoint ? "Message sent — I'll reply soon." : 'Your mail app opened with the message ready to send.'}
+            </p>
+          )}
+          <button ref={submitRef} className="btn btn-primary magnetic" type="submit" disabled={sending}>
+            {sending ? <span className="btn-spinner" aria-hidden="true" /> : null}
+            {sending ? 'Sending…' : 'Send message'}
+          </button>
         </Reveal>
       </div>
     </section>
@@ -136,6 +174,8 @@ export function Contact() {
 }
 
 export function FinalCta() {
+  const emailRef = useMagnetic(10);
+  const cvRef = useMagnetic(10);
   return (
     <section className="final">
       <div className="container final-inner">
@@ -143,8 +183,8 @@ export function FinalCta() {
           {closing.titleLead} <em>{closing.titleAccent}</em>
         </Reveal>
         <Reveal delay={120} className="final-actions">
-          <a href={`mailto:${site.email}`} className="btn btn-light">Email me</a>
-          <a href={site.cv} target="_blank" rel="noreferrer" className="btn btn-outline-light">Download CV</a>
+          <a ref={emailRef} href={`mailto:${site.email}`} className="btn btn-light magnetic">Email me</a>
+          <a ref={cvRef} href={site.cv} target="_blank" rel="noreferrer" className="btn btn-outline-light magnetic">Download CV</a>
         </Reveal>
       </div>
     </section>

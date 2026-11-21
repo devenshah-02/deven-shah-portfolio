@@ -1,6 +1,6 @@
 import React from 'react';
 import { hero, latest, site, stats } from '../data/content.js';
-import { useCountUp, useInView } from '../hooks.js';
+import { useCountUp, useInView, useMagnetic } from '../hooks.js';
 import { Arrow } from './ui.jsx';
 
 function Stat({ s, start, i }) {
@@ -33,9 +33,18 @@ function Words({ text, accent = false, from = 0 }) {
 export default function Hero() {
   const [statsRef, statsIn] = useInView({ threshold: 0.4 });
   const leadCount = hero.titleLead.split(' ').length;
+  const primaryRef = useMagnetic(10);
+  const secondaryRef = useMagnetic(10);
+
+  const onGlowMove = (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+  };
 
   return (
-    <section className="hero" id="top">
+    <section className="hero" id="top" onPointerMove={onGlowMove}>
+      <div className="hero-glow" aria-hidden="true" />
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="hero-eyebrow load" style={{ '--d': '0ms' }}>{hero.eyebrow}</p>
@@ -45,8 +54,8 @@ export default function Hero() {
           </h1>
           <p className="hero-intro load" style={{ '--d': '700ms' }}>{hero.intro}</p>
           <div className="hero-actions load" style={{ '--d': '820ms' }}>
-            <a href="#contact" className="btn btn-primary">{hero.ctaPrimary}</a>
-            <a href="#own" className="btn btn-ghost">{hero.ctaSecondary} <Arrow dir="down" /></a>
+            <a ref={primaryRef} href="#contact" className="btn btn-primary magnetic">{hero.ctaPrimary}</a>
+            <a ref={secondaryRef} href="#own" className="btn btn-ghost magnetic">{hero.ctaSecondary} <Arrow dir="down" /></a>
           </div>
           <ul className="hero-meta load" style={{ '--d': '940ms' }}>
             {hero.meta.map((m) => <li key={m}>{m}</li>)}
