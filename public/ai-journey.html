@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AI can build it in two days. Here&#x27;s what it can&#x27;t do for you. — Deven Shah</title>
+<meta name="description" content="What building a B2B AI product actually takes once the prototype works. An essay by Deven Shah, Senior Product Manager at Voiro."/>
+<meta property="og:type" content="article"/>
+<link rel="canonical" href="https://medium.com/@devenshah4172/ai-can-build-it-in-two-days-heres-what-it-can-t-do-for-you-c2c7cb43253e"/>
+<meta property="og:title" content="AI can build it in two days. Here&#x27;s what it can&#x27;t do for you."/>
+<meta property="og:description" content="What building a B2B AI product actually takes once the prototype works."/>
+<meta property="og:image" content="https://www.devenshah.in/photo.png"/>
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin/>
+<style>
+@font-face{font-family:"Cormorant Garamond";src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2");font-weight:300 600;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2");font-weight:300 600;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter";src:url(fonts/inter-latin-400-normal.woff2) format("woff2");font-weight:300 400;font-display:swap}
+@font-face{font-family:"Inter";src:url(fonts/inter-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+:root{--ink:#1a1a19;--ink2:#3d3c39;--ink3:#6c6a66;--bg:#F7F7F5;--card:#fff;--red:#2F5D8A;--soft:#EEF2F6;--serif:"Cormorant Garamond",Georgia,serif;--body:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+a{color:inherit}
+nav{position:sticky;top:0;background:rgba(247,247,245,.92);backdrop-filter:blur(10px);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;z-index:5}
+nav a{text-decoration:none}
+.nl{font-family:var(--serif);font-size:1.25rem;font-weight:500}
+.back{font-size:.95rem;color:var(--ink2);padding:.7rem 0}
+.back:hover{color:var(--red)}
+article{max-width:680px;margin:0 auto;padding:4rem 1.5rem 5rem}
+.meta{font-size:.9rem;color:var(--ink3);margin-bottom:1rem}
+.medium{font-size:.95rem;color:var(--ink3);margin:-1.5rem 0 2.5rem}.medium a{color:var(--red)}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:2.5rem}
+h2{font-family:var(--serif);font-weight:500;font-size:2rem;line-height:1.2;margin:3rem 0 1rem}
+h3{font-family:var(--serif);font-weight:500;font-style:italic;font-size:1.5rem;margin:2rem 0 .6rem}
+p{color:var(--ink2);margin-bottom:1.2rem}
+ul{margin:0 0 1.4rem 1.2rem;color:var(--ink2)}
+li{margin-bottom:.5rem}
+blockquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.65rem;line-height:1.35;color:var(--ink);border-left:3px solid var(--red);padding-left:1.25rem;margin:2.5rem 0}
+.end{margin-top:4rem;background:var(--soft);border-radius:22px;padding:2rem}
+.end p{margin-bottom:.8rem;color:var(--ink)}
+.end a{color:var(--red);font-weight:500}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:4px}
+@media(max-width:680px){body{font-size:17px}nav{padding:0 1.25rem}article{padding:2.5rem 1.25rem 4rem}h2{font-size:1.7rem}}
+</style>
+</head>
+<body>
+<nav><a class="nl" href="index.html">Deven Shah</a><a class="back" href="index.html#writing">← All writing</a></nav>
+<article>
+<p class="meta">Nov 18, 2026 · 12 min read</p>
+<h1>AI can build it in two days. Here’s what it can’t do for you.</h1>
+<p class="medium">First published on <a href="https://medium.com/@devenshah4172/ai-can-build-it-in-two-days-heres-what-it-can-t-do-for-you-c2c7cb43253e" target="_blank" rel="noopener noreferrer">Medium</a>. <a href="https://medium.com/@devenshah4172" target="_blank" rel="noopener noreferrer">Follow me there →</a></p>
+<p>A feature that used to take us a full sprint now takes two days. An API integration that took months takes about a week. Then we had to do something that surprised me: stop building every week.</p>
+<p>Why would a team that can build a feature in two days stop? The answer is what building a B2B AI product looks like in 2026, and it has little to do with how fast AI is. It also explains what we hear in almost every new sales conversation now: &quot;We can build this with AI.&quot; They&#x27;re right, up to a point. This is what happens after that point.</p>
+<p>I&#x27;m a senior product manager at Voiro, which makes software for companies that sell advertising. I&#x27;ve been in product for more than five years, and our newest product, ai.voiro.com, lets you connect your ad data and ask questions about it in plain language.</p>
+<h2>Six to nine months to find out if I was right</h2>
+<p>When I started in product management in 2021, things were very different. We had one product: Phoenix. It&#x27;s our core product, used by all our clients, and it handles billions of impressions. It works well, and it took years to build.</p>
+<p>In 2023 came a new idea: Brand Centre. We invested six to nine months in it, and everything depended on engineering. I wrote a PRD, wrote the design document, handed both over, and waited for a slot in a sprint. Nobody could react to the idea itself, only to my description of it. By the time we learned what the market thought, a lot of effort was already spent. I&#x27;m not criticising those days. The process fit the tools, and some things should take that long. This AI product won&#x27;t take years, but it will take time.</p>
+<h2>Now they can click it instead of imagining it</h2>
+<p>My work now starts at a whiteboard. I sketch the idea, ask an AI tool to build it, and show engineering something real. Then sales and marketing test it, and we keep sending prototypes out for reactions. What took me three to four months, sometimes six to nine, now reaches a working prototype in a couple of weeks, and within about two months we know what the market thinks. My team has made prototyping with AI design tools a standard step, so the design team reviews something real, not a description of it.</p>
+<h2>A prototype is messy. That&#x27;s fine.</h2>
+<p>I once asked for a pivot in our report builder, where each value becomes its own column, like Google Sheets. I told the AI exactly that. It built a toggle, a &quot;pivot by&quot; selector and a subtotal option. Is it pretty? Not really. Does it pivot? Yes.</p>
+<p>That&#x27;s what a prototype is for. It&#x27;s allowed to be rough, so I can try an idea, change my mind and try again before anyone spends real time on it. It&#x27;s also where people get fooled. A prototype of one idea takes a week or two. A product is built piece by piece, module by module, and you can&#x27;t expect a full product out of a month of prompting.</p>
+<h2>What I&#x27;ve built along the way</h2>
+<p>Most of what I build solves my own problems at work. Story Rater scores our Jira stories on eight dimensions, then checks the scores for consistency, missing permission cases, dependencies and design links, so my team can see where our PRDs are weak. A release notes tool reads a ticket and the rest of my product board and drafts a note that engineering, sales and customers can all use. I also used AI to turn the product&#x27;s formulas into a plain-language page for clients, with worked examples and a calculator for how each buying model works out a discount.</p>
+<p>I got one wrong. The first version of our internal sales agent sent its whole dataset to the AI on every question. That was the quick way to a working demo, and it has a ceiling: cost climbs as the data grows, and answer quality can slip. Since then I treat token cost and output quality as design constraints from day one. Each of these started with a problem I had and a prompt. None of them needed a PRD to begin.</p>
+<h2>Three things AI didn&#x27;t do for us</h2>
+<h3>A design system</h3>
+<p>We released the first version of the product, and we realised that without a proper design system it would get messy. Small things need a guide: how a button looks, how a form behaves, what an error message says. Without one, every new screen invents its own answer, and the product slowly stops feeling like one product.</p>
+<p>So we had to stop building something new every week, get the design system right, and rebuild on top of it. The reason is adoption. Clients learn a product by using it. If the screens keep changing after they have learned them, they learn it twice, and we redo the whole adoption curve.</p>
+<h3>Context, in two directions</h3>
+<p>Horizontal context is how the business fits together. Vertical context is how one piece of the work runs day to day, case by case. Someone on the team knows the first. Someone else knows the second.</p>
+<p>AI does well with either one. It does much less well when you ask it to carry the whole business down into every case of a single workflow. If you are building a B2B product with AI, that crossing is your job. You have to be the person who understands every detail and every case while you build.</p>
+<h3>Guardrails</h3>
+<p>Guardrails are the checks and rules that stop a wrong result from going out. Our intelligence agent, for example, must not talk about delivery when a publisher&#x27;s data has bookings but no delivery. Setting guardrails is the most important job, and it doesn&#x27;t end once they&#x27;re set. Whenever a business rule changes, whoever changes it also has to update the guardrail that protects it. If they don&#x27;t, the guardrail keeps enforcing the old rule.</p>
+<h2>What a B2B product asks of you that a prototype doesn&#x27;t</h2>
+<p>A prototype has to work once, for a friendly audience. A B2B product has to work every day for someone else&#x27;s team, on their data. I&#x27;m not claiming ai.voiro.com has all of this. It&#x27;s the list we build against, one module at a time.</p>
+<p>Take exporting a client&#x27;s data to their own cloud storage. It went from PRD to production-ready in two days and is live on ai.voiro.com. Saved credentials are encrypted and shown masked. The first run backfills the report&#x27;s full history in the background, and after that only newly elapsed days are sent. If the report&#x27;s query changes later, the last 30 days are sent again so the delivered files catch up, and older days are left alone.</p>
+<p>Someone had to decide that last rule: what happens to files you already delivered when a report&#x27;s definition changes. You can re-send everything, re-send nothing, or pick a window. We picked 30 days.</p>
+<p>Security starts with credentials. Connecting a client&#x27;s data source means holding the keys to it, so those have to be protected. One of our early prototypes had its login password sitting in the front-end code, where anyone could read it in the browser. We caught it and moved authentication to the server. Permission checks follow the same rule: they run on the server, not just on the screen.</p>
+<p>Even a delete button looks like a one-line request. When we wrote the spec for ours, it needed a server-side permission check, a change history of who deleted what and when, a rule that blocks deletion once revenue has been delivered, and a cascade that rolls back completely if any part fails.</p>
+<p>Clients&#x27; compliance teams ask how we handle personal data: what we collect, whether we act as the processor or the controller, and how long we keep it. AI can fill in the form. It can&#x27;t tell you what your system stores and for how long, so engineering has to confirm. Expect security and procurement reviews on the client&#x27;s side too.</p>
+<p>Models get retired on a schedule. When a notice said a model version we used was going away, the first job was finding which of our tools used it, and where. My prototypes each live in their own GitHub repository, so that meant opening each one and looking. It&#x27;s a good reason for a PM who builds with AI to keep their own. We also log every API request with its status and latency, so we can see what is slow or failing.</p>
+<p>Then there&#x27;s the data itself. Our intelligence agent once gave a wrong answer for a publisher whose delivered revenue was zero. The model was not the main cause. We were sending it raw line items instead of totals, mixing currencies and counting planned values twice. Most of the fix was in the data, not the prompt.</p>
+<p>Each of these needs dedicated time from someone: engineering, design, testing, security, support. AI makes the first version faster. It doesn&#x27;t remove the rest.</p>
+<h2>&quot;We can build this ourselves with AI&quot;</h2>
+<p>That line deserves a real answer. They&#x27;re right that, for many things, they can. Version 1 to version 10 is easy, and version 15 is fine. If you need a small internal tool, build it.</p>
+<p>The trouble starts around version 200. By then the tool has grown through hundreds of prompts, and the people who own it often have very little idea what is inside the code. That is when things break and nobody can say why. Two reasons come first.</p>
+<p>The first is that nobody holds the map. When you write code by hand, you learn it as you go. When AI writes it, the code can work while no one understands it. Story Rater showed me this. A review found about a dozen real problems: duplicated logic that could drift apart, calls with no timeout, no limit on login attempts, missing checks. We fixed them by prompting the AI again. That worked for each problem we found. It doesn&#x27;t tell me there isn&#x27;t one we missed.</p>
+<p>The second is that the rules are the hard part. Behind a product like ours sit thousands of rules about money, time and currency, and about how different systems define the same number. A date window re-syncs, so yesterday&#x27;s figure can change today. The dirham is pegged at 3.6725 to the dollar. Convert at 3.67 instead and a million-dollar budget is off by about 2,500 dirhams. A team building its own version usually finds these rules one failure at a time. A chart is easy to rebuild. The numbers behind it are not.</p>
+<p>Companies will build some of this and buy the rest. Build what is yours. Don&#x27;t rebuild the plumbing.</p>
+<h2>What the speed costs</h2>
+<p>There is a third problem, and it&#x27;s quieter: a lot of useless code. When getting to a first version is quick, things get added, and nobody has to say no. A feature takes an afternoon, so why not? But that afternoon isn&#x27;t the real cost. Review, testing, security and support come after it.</p>
+<p>I saw the same thing in a recent design review. The designs were good, but there was too much text: labels explaining labels, helper lines for things that needed no help. My own pivot screenshot shows it too. The dropdown displays a raw field name from the database. The AI did exactly what I asked. It didn&#x27;t tell me a user shouldn&#x27;t see that.</p>
+<p>Cutting isn&#x27;t the whole job, though. This is our connector setup screen, with a required field called unique key and a long explanation under it.</p>
+<p>Without a unique key, two different records that share every other field overwrite each other in the cache, silently. A short label would have looked tidier. But a label that explains itself needs nothing under it, and a field that can quietly corrupt someone&#x27;s numbers earns a full paragraph.</p>
+<p>This is where the PM job sits now. Engineering capacity was always the brake: a sprint has limited slots, so every request had to fight for one. AI helps us use those slots better, but a slot is not free. Every feature still costs engineering, design, testing and support, and each department needs dedicated time to filter what comes in. So the question stays the same: is it worth building, and what do we pay for it?</p>
+<p>The questions I ask now:</p>
+<ul>
+<li>What do we build, and what don&#x27;t we?</li>
+<li>What does the user actually need to see?</li>
+<li>What should we not show at all?</li>
+<li>How do we cut this down so only the relevant things stay?</li>
+</ul>
+<blockquote>AI can build almost anything you describe. It won&#x27;t stop you from describing something that shouldn&#x27;t exist.</blockquote>
+<h2>ai.voiro.com: something I couldn&#x27;t have started before</h2>
+<p>ai.voiro.com is the one I couldn&#x27;t have started in the old process. From the product side, I would have needed a full spec and an engineering team before anyone could judge the idea. This time we built a rough version, tested the ideas against real conversations, and kept going.</p>
+<p>It connects to data sources such as Google Sheets, SSPs, DSPs and our own APIs. It suggests how to map the columns to a standard structure, with a confidence score that a person approves. It has a dashboard builder, a way to ask questions in plain language, and alerts you set yourself. For prospects, we set up demo instances with sample data, so the sales team can show a dashboard built around their kind of data before any real data is connected. An agent that automates the setup, connecting a source and mapping its columns, is in build.</p>
+<p>We now build it together, product and engineering, as equals. The jobs are different:</p>
+<ul>
+<li>Engineering owns how the code looks and works: architecture, quality and review.</li>
+<li>Product tests the product, judges the outputs, and designs what comes next.</li>
+</ul>
+<p>For each new feature, I build a prototype that shows how it should look and behave. Engineering then builds the real thing, also with AI.</p>
+<p>That split is why this works. I decide what to build and prove it with a prototype. Engineering decides how it&#x27;s built, so it still holds up long after version 15.</p>
+<h2>Clients are live, and usage keeps changing</h2>
+<p>The product is with clients now, and we&#x27;re watching how they use it. We are rolling it out slowly on purpose, so what we learn is real use and not reactions to a demo. The clearest signal so far is that one client who has it live asked us to connect three more partners. That&#x27;s one client, so I&#x27;m not calling it a trend. It&#x27;s still the kind of request a demo doesn&#x27;t produce.</p>
+<p>The speed is real, and it&#x27;s also the number I&#x27;d question first. It shows that product and engineering can move faster together. It doesn&#x27;t show that we built the right thing. Speed is output. The test is whether the client uses the feature and whether the next request is sharper than the last.</p>
+<h2>If you&#x27;re a PM about to start</h2>
+<ul>
+<li>Let the prototype be messy, and put it in front of someone who isn&#x27;t you early: engineering, sales, a client.</li>
+<li>Keep each prototype in your own GitHub repository, so engineering can review it and you can find things in it later.</li>
+<li>Get the design system right after the first release, before the weekly builds pile up.</li>
+<li>Write the guardrails down, and update them whenever a business rule changes.</li>
+<li>Cut earlier than feels necessary. Adding is easy now. Removing is your job.</li>
+</ul>
+<h2>Still building</h2>
+<p>We&#x27;re still building this, and a lot is unknown. I don&#x27;t yet know which of our choices will hold up as more clients come on. Usage keeps teaching us things we didn&#x27;t expect.</p>
+<p>It&#x27;s exciting to build right now. A PM can go from a whiteboard to something real in days, and product and engineering can work on the same thing instead of passing documents back and forth. But the faster we can build, the more a PM&#x27;s judgment matters: what goes in, what stays out, what the user sees, and what we never show them. That is the job now.</p>
+<p>If you&#x27;re building a B2B product this year, I&#x27;d like to hear what you&#x27;re choosing not to build.</p>
+<div class="end"><p>I'm Deven, a senior product manager building AI products for ad revenue teams.</p><p><a href="mailto:devenshah1995@gmail.com">Tell me what you're choosing not to build →</a></p></div>
+</article>
+</body>
+</html>
