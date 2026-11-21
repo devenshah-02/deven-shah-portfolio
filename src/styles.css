@@ -92,6 +92,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .btn-light { background: var(--ink); color: var(--navy); }
 .btn-outline-light { border-color: var(--line-strong); color: var(--ink); }
 .arrow { flex: none; transition: transform .35s var(--ease); }
+/* Pulled toward the cursor by JS (useMagnetic); this just supplies the ease-back. */
+.magnetic { transition: transform .35s var(--ease), background .25s, color .25s, border-color .25s; }
+
+.btn-spinner {
+  width: 13px; height: 13px; border-radius: 50%;
+  border: 1.6px solid rgba(7, 18, 15, 0.3); border-top-color: var(--navy);
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ---------- Liquid glass nav ---------- */
 .nav {
@@ -238,6 +247,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* ---------- Hero ---------- */
 .hero { padding: calc(var(--nav-h) + clamp(40px, 8vh, 90px)) 0 40px; position: relative; }
+/* Soft aqua glow that follows the cursor, same technique as the nav-sheen. */
+.hero-glow {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0;
+  background: radial-gradient(440px circle at var(--mx, 50%) var(--my, 50%), rgba(100, 233, 217, 0.12), transparent 70%);
+  transition: opacity .5s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero:hover .hero-glow { opacity: 1; }
+}
 .hero::before {
   content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -461,7 +479,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .form input:focus, .form textarea:focus { outline: none; border-color: var(--aqua); box-shadow: 0 0 0 4px rgba(100, 233, 217, .14); }
 .form .btn { justify-self: start; }
 .form-error { margin: 0; color: #ff8d7a; font-size: 14px; }
-.form-ok { margin: 0; color: var(--aqua); font-size: 14px; }
+.form-error.is-shake { animation: shake .4s var(--ease); }
+@keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+.form-ok { margin: 0; color: var(--aqua); font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.form-ok-check { flex: none; animation: popIn .45s var(--spring); }
+.form-ok-check circle { stroke-dasharray: 44; stroke-dashoffset: 44; animation: drawCircle .5s var(--ease) forwards; }
+.form-ok-check path { stroke-dasharray: 12; stroke-dashoffset: 12; animation: drawCheck .3s var(--ease) .35s forwards; }
+@keyframes popIn { from { transform: scale(.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes drawCircle { to { stroke-dashoffset: 0; } }
+@keyframes drawCheck { to { stroke-dashoffset: 0; } }
 
 /* Final CTA + footer */
 .final { background: var(--surface-2); padding: clamp(80px, 12vw, 150px) 0; position: relative; overflow: hidden; }
@@ -480,6 +506,21 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .footer .brand { color: var(--ink); }
 .footer nav { display: flex; gap: 22px; }
 .footer p { margin: 0; }
+
+/* Floating "back to top" pill, same glass language as the nav. */
+.back-to-top {
+  position: fixed; right: var(--gutter); bottom: 28px; z-index: 40;
+  width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--line); background: var(--glass-bar);
+  backdrop-filter: blur(16px) saturate(1.7); -webkit-backdrop-filter: blur(16px) saturate(1.7);
+  box-shadow: 0 14px 34px -16px rgba(0, 0, 0, 0.8);
+  color: var(--ink);
+  opacity: 0; transform: translateY(14px) scale(.85);
+  transition: opacity .4s var(--ease), transform .5s var(--spring), border-color .3s, background .3s;
+}
+.back-to-top.is-shown { opacity: 1; transform: none; pointer-events: auto; }
+.back-to-top:not(.is-shown) { pointer-events: none; }
 
 /* ---------- Hover: pointer devices only ---------- */
 @media (hover: hover) and (pointer: fine) {
@@ -500,6 +541,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .post:hover .post-title { color: var(--aqua); transform: translateX(6px); }
   .pod:hover .pod-play { transform: scale(1.08); }
   .contact-links a:hover { color: var(--aqua); background-size: 100% 1.5px; }
+  .back-to-top:hover { border-color: var(--line-strong); background: rgba(100, 233, 217, 0.14); }
   a:hover .arrow-right { transform: translateX(4px); }
   a:hover .arrow-out { transform: translate(2px, -2px); }
   .btn:hover .arrow-down { transform: translateY(3px); }
@@ -508,7 +550,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* On touch, hover states stick after a tap, so use a press effect instead. */
 @media (hover: none), (pointer: coarse) {
   .nav-sheen { display: none; }
-  .btn:active, .cap:active, .tag:active, .latest:active { transform: scale(.98); }
+  .btn:active, .cap:active, .tag:active, .latest:active, .back-to-top:active { transform: scale(.98); }
   .case-head:active .case-title { transform: translateX(4px); }
   .nav-panel nav a:active, .panel-foot:active { background-color: var(--glass-2); }
 }

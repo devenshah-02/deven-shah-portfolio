@@ -99,6 +99,31 @@ export function useActiveSection(ids) {
   return active;
 }
 
+// Pulls an element a few px toward the cursor while it's hovered, so buttons
+// feel soft/liquid instead of static. Pointer devices only; no-ops elsewhere.
+export function useMagnetic(strength = 14) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || reduced()) return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const onMove = (e) => {
+      const r = el.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      const y = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+    };
+    const onLeave = () => { el.style.transform = ''; };
+    el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerleave', onLeave);
+    return () => {
+      el.removeEventListener('pointermove', onMove);
+      el.removeEventListener('pointerleave', onLeave);
+    };
+  }, [strength]);
+  return ref;
+}
+
 // Lets components drop duplicated content (like the marquee's second copy)
 // instead of only freezing the animation.
 export function useReducedMotion() {
