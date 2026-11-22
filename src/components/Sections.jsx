@@ -15,7 +15,6 @@ export function Capabilities() {
               <span className="cap-key">{c.key}</span>
               <h3 className="h3">{c.title}</h3>
               <p>{c.body}</p>
-              <p className="cap-result"><span>Result</span>{c.result}</p>
             </Reveal>
           ))}
         </div>

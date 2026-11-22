@@ -55,7 +55,7 @@ export default function Hero() {
           <p className="hero-intro load" style={{ '--d': '700ms' }}>{hero.intro}</p>
           <div className="hero-actions load" style={{ '--d': '820ms' }}>
             <a ref={primaryRef} href="#contact" className="btn btn-primary magnetic">{hero.ctaPrimary}</a>
-            <a ref={secondaryRef} href="#own" className="btn btn-ghost magnetic">{hero.ctaSecondary} <Arrow dir="down" /></a>
+            <a ref={secondaryRef} href={site.cv} target="_blank" rel="noreferrer" className="btn btn-ghost magnetic">{hero.ctaSecondary} <Arrow dir="out" /></a>
           </div>
           <ul className="hero-meta load" style={{ '--d': '940ms' }}>
             {hero.meta.map((m) => <li key={m}>{m}</li>)}
@@ -67,8 +67,6 @@ export default function Hero() {
             <div className="portrait-ring" aria-hidden="true" />
             <img src={site.photo} alt="Deven Shah" width="440" height="520" />
           </div>
-          <span className="float-chip chip-a">{hero.chips[0]}</span>
-          <span className="float-chip chip-b">{hero.chips[1]}</span>
         </div>
       </div>
 

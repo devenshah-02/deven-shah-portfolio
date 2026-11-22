@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { awards, clients, closing, contactIntro, podcasts, sections, site, toolbox, writing } from '../data/content.js';
 import { useMagnetic, useReducedMotion } from '../hooks.js';
 import { Arrow, Reveal, SectionHead } from './ui.jsx';
@@ -87,49 +87,9 @@ export function Writing() {
 
 export function Contact() {
   const s = sections.contact;
-  const [f, setF] = useState({ first: '', last: '', email: '', company: '', message: '' });
-  const [err, setErr] = useState('');
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
-  const set = (k) => (e) => setF({ ...f, [k]: e.target.value });
-  const submitRef = useMagnetic(8);
-
-  const submit = async (e) => {
-    e.preventDefault();
-    if (!f.first || !f.email || !f.message) { setErr('Add your first name, email and a message to send.'); return; }
-    if (!/^\S+@\S+\.\S+$/.test(f.email)) { setErr('Enter an email like name@company.com.'); return; }
-    setErr('');
-
-    if (!site.formEndpoint) {
-      // No form backend configured yet: fall back to opening the visitor's mail client.
-      const subject = encodeURIComponent(`Hello from ${f.first} ${f.last}${f.company ? `, ${f.company}` : ''}`);
-      const body = encodeURIComponent(`${f.message}\n\n${f.first} ${f.last}\n${f.email}${f.company ? `\n${f.company}` : ''}`);
-      window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-      setSent(true);
-      return;
-    }
-
-    setSending(true);
-    try {
-      const res = await fetch(site.formEndpoint, {
-        method: 'POST',
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: `${f.first} ${f.last}`.trim(),
-          email: f.email,
-          company: f.company,
-          message: f.message,
-        }),
-      });
-      if (!res.ok) throw new Error('Form submission failed');
-      setSent(true);
-      setF({ first: '', last: '', email: '', company: '', message: '' });
-    } catch {
-      setErr('Could not send that. Please email me directly instead.');
-    } finally {
-      setSending(false);
-    }
-  };
+  const waRef = useMagnetic(8);
+  const mailRef = useMagnetic(8);
+  const whatsapp = `https://wa.me/${site.phone.replace(/\D/g, '')}`;
 
   return (
     <section className="section" id="contact">
@@ -138,35 +98,38 @@ export function Contact() {
           <SectionHead num={s.num} label={s.label} lead={s.lead} accent={s.accent} />
           <Reveal as="p" className="contact-intro">{contactIntro}</Reveal>
           <Reveal className="contact-links" delay={100}>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
             <a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow dir="out" /></a>
             <a href={site.medium} target="_blank" rel="noreferrer">Medium <Arrow dir="out" /></a>
-            <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
           </Reveal>
         </div>
 
-        <Reveal as="form" className="form" onSubmit={submit} noValidate delay={150}>
-          <div className="form-row">
-            <label>First name<input value={f.first} onChange={set('first')} autoComplete="given-name" /></label>
-            <label>Last name<input value={f.last} onChange={set('last')} autoComplete="family-name" /></label>
-          </div>
-          <label>Email<input type="email" value={f.email} onChange={set('email')} autoComplete="email" /></label>
-          <label>Company<input value={f.company} onChange={set('company')} autoComplete="organization" /></label>
-          <label>Message<textarea rows="5" value={f.message} onChange={set('message')} /></label>
-          {err && <p className="form-error is-shake" role="alert">{err}</p>}
-          {sent && !err && (
-            <p className="form-ok" role="status">
-              <svg className="form-ok-check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.4" />
-                <path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <Reveal className="contact-actions" delay={150}>
+          <a ref={waRef} href={whatsapp} target="_blank" rel="noreferrer" className="contact-card magnetic">
+            <span className="contact-card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2z" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M8.3 8.6c.2-.5.5-.5.7-.5h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.4 0 .7.6 1 1.6 2 2.7 2.5.3.1.5.1.6-.1l.6-.6c.2-.2.4-.2.6-.1l1.8.9c.2.1.3.3.3.5 0 .9-.9 1.6-1.7 1.6-2.7 0-5.9-2.6-6.9-5.3-.4-1-.1-1.8.1-2.2z" fill="currentColor" />
               </svg>
-              {site.formEndpoint ? "Message sent — I'll reply soon." : 'Your mail app opened with the message ready to send.'}
-            </p>
-          )}
-          <button ref={submitRef} className="btn btn-primary magnetic" type="submit" disabled={sending}>
-            {sending ? <span className="btn-spinner" aria-hidden="true" /> : null}
-            {sending ? 'Sending…' : 'Send message'}
-          </button>
+            </span>
+            <span>
+              <strong>WhatsApp</strong>
+              <small>{site.phone}</small>
+            </span>
+            <Arrow dir="out" />
+          </a>
+          <a ref={mailRef} href={`mailto:${site.email}`} className="contact-card magnetic">
+            <span className="contact-card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.6" fill="none" />
+              </svg>
+            </span>
+            <span>
+              <strong>Email</strong>
+              <small>{site.email}</small>
+            </span>
+            <Arrow dir="right" />
+          </a>
         </Reveal>
       </div>
     </section>

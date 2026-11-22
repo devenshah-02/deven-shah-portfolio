@@ -117,12 +117,8 @@ export default function Nav() {
         </nav>
 
         <div className="nav-cta">
-          <a href={site.cv} className="nav-cv" target="_blank" rel="noreferrer">CV</a>
-          <a href="#contact" className="status-pill">
-            <span className="pulse" aria-hidden="true" />
-            <span className="status-long">{site.status}</span>
-            <span className="status-short">{site.statusShort}</span>
-          </a>
+          <a href={site.cv} className="nav-cv" target="_blank" rel="noreferrer">Download CV</a>
+          <a href="#contact" className="nav-talk">Talk to me</a>
           <button
             ref={burgerRef}
             className={`burger ${open ? 'is-open' : ''}`}
@@ -158,8 +154,8 @@ export default function Nav() {
           </a>
         </nav>
         <a href="#contact" className="panel-foot" onClick={() => setOpen(false)}>
-          <span>Contact</span>
-          <span className="panel-foot-status"><span className="pulse" aria-hidden="true" />{site.statusShort}</span>
+          <span>Talk to me</span>
+          <span className="panel-foot-status">Contact</span>
         </a>
       </div>
     </header>
