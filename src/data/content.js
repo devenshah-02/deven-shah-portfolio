@@ -12,9 +12,6 @@ export const site = {
   photo: '/photo.png',
   linkedin: 'https://linkedin.com/in/deven-shah-635210145/',
   medium: 'https://medium.com/@devenshah4172',
-  // Public page: your employer can read this. Change to 'Let’s talk' if your search is quiet.
-  status: 'Open to conversations',
-  statusShort: 'Available',
 };
 
 export const nav = [
@@ -26,15 +23,14 @@ export const nav = [
 ];
 
 export const hero = {
-  eyebrow: 'Enterprise B2B SaaS, ad tech & agentic AI',
-  titleLead: 'Products that cut manual work',
+  eyebrow: 'Senior Product Manager, Voiro',
+  titleLead: 'I build products that cut manual work',
   titleAccent: 'and grow revenue.',
   intro:
-    'I’m Deven, Senior Product Manager at Voiro. I lead product for the platform that Flipkart, Myntra, Paytm, Zee5 and Carrefour run their ad revenue on: 40% less manual revenue ops, launches measured in months instead of quarters, and AI their teams use every day.',
-  meta: ['Mumbai & Bangalore', 'B2B SaaS', 'Agentic AI', 'Ad tech'],
-  chips: ['AI launch in 3 months', '$100M+ in ad revenue'],
-  ctaPrimary: 'Get in touch',
-  ctaSecondary: 'See results',
+    'I lead product for the platform Flipkart, Myntra, Paytm and Carrefour run their ad revenue on.',
+  meta: ['Mumbai & Bangalore', 'Ad tech', 'Agentic AI'],
+  ctaPrimary: 'Talk to me',
+  ctaSecondary: 'Download CV',
 };
 
 export const latest = {
@@ -58,37 +54,31 @@ export const capabilities = [
     key: 'AI',
     title: 'AI agents revenue teams use daily',
     body: 'Agents that answer revenue questions in plain language, rank at-risk advertisers and push call lists into Salesforce. Every change is tested against real client questions before it ships.',
-    result: 'Account prep: 2 hours to under 20 minutes',
   },
   {
     key: 'Revenue',
     title: 'Booking-to-billing that holds up at peak',
-    body: 'Order management, line-item creation and revenue reconciliation across direct and programmatic sales.',
-    result: 'Runs through IPL and Big Billion Days',
+    body: 'Order management, line-item creation and revenue reconciliation across direct and programmatic sales, built to run through IPL and Big Billion Days.',
   },
   {
     key: 'Enterprise',
     title: 'Enterprise access IT teams sign off on',
     body: 'Google and Microsoft single sign-on tied to client directories, with access that ends the day someone leaves.',
-    result: 'Onboarding: 3 days to 1',
   },
   {
     key: 'Data',
     title: 'One revenue view across every system',
     body: 'Supply and demand platforms, the ad server, the order system and Salesforce in a single view, with daily checks that flag revenue drops.',
-    result: '30% fewer support tickets',
   },
   {
     key: '0 → 1',
     title: 'New bets with an exit defined upfront',
     body: 'Discovery across six publisher teams, staged prototypes, named beta partners, and the conditions for shutting it down agreed before launch.',
-    result: 'Closed a product at 10% of target, kept the code',
   },
   {
     key: 'Team',
     title: 'Teams that prototype before they spec',
     body: 'Prototyping as a standard step, a three-agent story check before grooming, and release notes drafted straight from Jira.',
-    result: 'Release notes: 40 minutes to under 2',
   },
 ];
 
@@ -96,8 +86,8 @@ export const about = {
   titleLead: 'I ran the revenue desk',
   titleAccent: 'before I built for it.',
   paras: [
-    'At Disney+ Hotstar I owned ad revenue reporting through IPL and the World Cup, with ten people waiting on my number. I build the products I wanted then.',
-    'The hard part of AI isn’t the model. It’s making an account manager stop double-checking it. So I prototype before engineering commits, test against real client questions, and ship only above a set quality bar.',
+    'At Disney+ Hotstar I owned ad revenue reporting through IPL and the World Cup, with ten people waiting on my number and no system that could give it to me in minutes. That gap is what I’ve built for since.',
+    'Getting an account manager to trust the output is harder than building the model itself. I prototype before engineering commits, test every change against real client questions, and ship only once it clears a set quality bar.',
     'I work across engineering, design, sales, and client ad ops and finance teams, and I lead a PM, an APM and a designer.',
   ],
   tags: ['9 years in ad tech', '5 as a PM', 'Prototype before spec'],
@@ -140,14 +130,14 @@ export const work = [
   },
   {
     area: 'Product leadership · AI-native team',
-    title: 'Got ideas in front of users in weeks, not months',
+    title: 'Cut idea-to-feedback time from months to weeks',
     hook: 'Ideas waited months for an engineering slot before anyone could react to them.',
     cols: [
       {
         h: 'Problem',
         items: [
           'A new idea took 3 to 9 months to reach real feedback',
-          'Engineering, design and sales reacted to documents, not to a product',
+          'Engineering, design and sales had only documents to react to, never a working product',
           'Story quality and release notes depended on manual senior effort',
           'Weekly AI builds were making the product feel inconsistent',
         ],
@@ -167,7 +157,7 @@ export const work = [
           'Working prototypes in a couple of weeks; market signal in about two months',
           'Release notes in under 2 minutes, down from 30 to 40',
           'New PMs write sprint-ready stories without senior review',
-          'Engineering owns how it’s built; product owns what and why',
+          'Engineering decides how we build it; I stay focused on what we build and why',
         ],
       },
     ],
@@ -202,7 +192,7 @@ export const work = [
           'Adoption reached 10% of target',
           'Closed beta with five publishers in under 9 months',
           'Called the shutdown, kept the code for reuse and documented why',
-          'Now set kill criteria before every launch, not just success metrics',
+          'Every launch now gets kill criteria defined upfront, alongside the success metrics',
         ],
       },
     ],
@@ -215,28 +205,28 @@ export const decisions = [
     situation: 'Enterprise IT teams flagged separate logins and slow access removal as a security risk.',
     call: 'Talked to IT admins at two clients, then shipped Google and Microsoft single sign-on tied to their directories.',
     result: 'Onboarding dropped from 3 days to 1, and access now ends the day someone leaves.',
-    lesson: 'Security features don’t win deals. Missing them loses deals.',
+    lesson: 'Clients barely ask about security until it’s missing, and then it costs the deal.',
   },
   {
     title: 'Served a second retail client with no new product',
     situation: 'Sales brought a wishlist of AI features to win demos.',
     call: 'Scored each one on customer value, reuse and running cost: built some, folded some into existing work, declined the rest in writing.',
     result: 'A roadmap that fit our capacity, and a second retail client served by extending a system we already had.',
-    lesson: 'Solve the problem behind the request, not the request.',
+    lesson: 'I dig for the problem behind the request before I build anything.',
   },
   {
     title: 'Let clients create 100 line items at once',
     situation: 'Line-item creation timed out and created duplicates for large publishers.',
     call: 'Mapped every failure mode with the engineering lead, then made the case for background processing.',
     result: 'Teams now create 100 line items in one go, and the duplicate tickets stopped.',
-    lesson: 'Bring engineering the problem, not the solution.',
+    lesson: 'I hand engineering the problem and let them own the fix.',
   },
   {
     title: 'Cut support tickets 30% by calling clients first',
     situation: 'Clients were finding revenue drops before we did.',
     call: 'Built daily reconciliation against a 7-day average, with alerts that go out to clients proactively.',
     result: '30% fewer support tickets, and Voiro now makes the first call.',
-    lesson: 'Monitoring is the foundation, not a feature.',
+    lesson: 'Monitoring has to ship before the feature does, every time.',
   },
 ];
 
@@ -271,7 +261,8 @@ export const experience = [
 ];
 
 export const toolbox = [
-  { group: 'Prototype & build', items: ['Claude Code', 'GitHub', 'Vercel', 'Lovable', 'Figma', 'Next.js' /* ASSUMED */] },
+  { group: 'Prototype & build', items: ['Figma', 'GitHub', 'Vercel', 'Notion'] },
+  { group: 'AI & workflow automation', items: ['Claude Code', 'Lovable', 'Gamma', 'n8n', 'ChatGPT', 'Perplexity', 'Evals'] /* ASSUMED stack, confirm full list */ },
   { group: 'Discovery & delivery', items: ['Jira', 'Story Rater', 'Client interviews', 'PRDs', 'Release notes', 'Kill criteria'] /* ASSUMED beyond Jira / Story Rater */ },
   { group: 'Ad tech domain', items: ['Google Ad Manager', 'Supply & demand platforms', 'Order management', 'Salesforce', 'Revenue reconciliation', 'Single sign-on'] },
 ];
@@ -306,13 +297,13 @@ export const sections = {
   experience: { num: '05', label: 'Experience', lead: '9 years in ad tech,', accent: '5 as a PM.', aside: 'From ad server migrations to leading product for the platform behind the revenue.' },
   toolbox: { num: '06', label: 'Toolbox', lead: 'How I get from idea', accent: 'to shipped.' },
   writing: { num: '07', label: 'Writing & talks', lead: 'Thinking', accent: 'out loud.' },
-  contact: { num: '08', label: 'Let’s connect', lead: 'Building B2B SaaS or AI products?', accent: 'Let’s talk.' },
+  contact: { num: '08', label: 'Let’s connect', lead: 'Building a 0 to 1 product, need an AI PM,', accent: 'or untangling a hard problem?' },
 };
 
 export const closing = {
-  titleLead: 'Have a revenue problem',
+  titleLead: 'Got a product problem',
   titleAccent: 'worth solving?',
 };
 
 export const contactIntro =
-  'Happy to talk B2B SaaS, agentic AI, ad tech, or anything in this portfolio. Based in Mumbai and Bangalore.';
+  'Happy to talk shop on 0 to 1 bets, agentic AI, or anything in this portfolio. Based in Mumbai and Bangalore.';
